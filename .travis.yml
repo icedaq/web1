@@ -4,6 +4,10 @@ php:
 - '7.0'
 script: phpunit tests
 
+
+before_deploy:
+  - cd ./src
+
 deploy:
   provider: heroku
   app: projweb1
