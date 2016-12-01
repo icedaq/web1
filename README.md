@@ -11,6 +11,8 @@ Use docker-compose to run a MySQL and PHP7/Apache container.
 
 ```bash
 $ docker-compose up
+$ curl localhost:8080
+Hello World!
 ```
 
 Requires docker and docker-compose (>= 1.6).
