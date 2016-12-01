@@ -1,5 +1,11 @@
 language: php
-php:
-  - '7.0'
 
+php:
+- '7.0'
 script: phpunit tests
+
+deploy:
+  provider: heroku
+  app: projweb1
+  api_key:
+    secure: oRnZ3VT4/gGHHQ6vEGbX1UUzXygIG7iC97R1LMvoJMyGusqmIpMb43GtJ4H4ZrKI76zQ1dWmaSNbInWE70NRmBsn7nGeDXSDaBrt946sWKhy0incoD5ra0g6hQOuz5P2hm7RkXJ3DA5kL70MW/hGOXw0TC465x9JWI5JMqYqQAEZu/pmghriYrMd1ThTGCuQzlb2eYWA9JHhZ+/qljDKHsQ6riUdy2zj128bGJD5DRHkuR/bTRW0tX2lqDaYKxYKWuAs1fMvOQUGxs4DWKIwcEZ5iPJUv3k9FAxVuj5KwTGaknhXWmBax3TV4PrqQ/38io0OpTBrYDVo/YY5c/c95SyeYvVyVY3t8TvngXe0o345kQOPRlD4ttKxRmOUGX8Bg0MHBVYM8/hIgKo7ZqWMXUnYpX7rgiCwwyxnNU/AcAwstmrQZDvOL3mvP9c+cQPAwH6tcMHuK6FTFhNKufUfAtPpO55dmnjKB+CYx1zoQviGUGs/M5qCPlP5kbFC9NBjtuWGPelnkmc/EudOBqltROWE7WdxF+o16YuFuik/xB9vZtcMmpVKNqrtiuaNWd9mCaInn46XyMOeEVMty/P7YMf6ujJz2l4xQqMakAKgdil5x3BTEr/OuuuQn0mTQ1jy3KLVGy9vPKACza3/MjFnMrzV17ao7KRn7H5m4Tts6dY=
