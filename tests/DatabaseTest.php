@@ -17,8 +17,8 @@ class DatabaseTest extends TestCase
        $this->assertEquals($this->db->isConnected(), true);
     }
 
-    public function testDBExists()
-    {
-       $this->assertEquals($this->db->dbExists("webshop"), true);
-    }
+    //public function testDBExists()
+    //{
+      // $this->assertEquals($this->db->dbExists("webshop"), true);
+    //}
 }

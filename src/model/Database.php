@@ -33,8 +33,8 @@ class Database {
 
             $this->hostname = $dbparts['host'];
             $this->username = $dbparts['user'];
-            $this->password = $dbparts['pass'];
-            //$database = ltrim($dbparts['path'],'/');
+            $this->password = $dbparts['pass']; // On heroku the DB name is fixed.
+            $this->database = ltrim($dbparts['path'],'/');
         } else {
             die("Could not set database connection parameters!");
         }
