@@ -23,10 +23,10 @@ class Database {
             $password = getenv("DEV_DB_PASSWORD");
             $database = getenv("DEV_DB_DB");
         } elseif ($this->env == "TEST") { // The travis.ci environment.
-            //$hostname = getenv('DEV_DB_HOST'); 
-            //$username = getenv('DEV_DB_USER');
-            //$password = getenv("DEV_DB_PASSWORD");
-            //$database = getenv("DEV_DB_DB");
+            $hostname = "localhost"; 
+            $username = "travis";
+            $password = "";
+            $database = "webshop";
         } elseif ($this->env == "PROD") {
             $url = getenv('JAWSDB_URL');
             $dbparts = parse_url($url);
