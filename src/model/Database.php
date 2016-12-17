@@ -59,6 +59,14 @@ class Database {
         $this->createDB($db);
 
         $this->dbConnection->select_db($db);
+
+        // Seed data to the database here.
+        $this->dbConnection->query("CREATE TABLE TEST ( test varchar(50) )");
+        $insert = $this->dbConnection->query("INSERT INTO TEST (test) VALUES ('Hi, Pascal!')");
+        if (!$insert === TRUE)
+        {
+            echo $this->dbConnection->error;
+        }
     }
 
     private function dropDB($dbName) {
@@ -82,6 +90,18 @@ class Database {
         // extract the value
         $row = $query->fetch_object();
         return (bool) $row->exists; 
+    }
+
+    public function debug() {
+        $query = $this->dbConnection->query("SELECT * FROM TEST");
+        if ($query === false) {
+            throw new Exception($mysqli->error, $mysqli->errno);
+        }
+
+        // extract the value
+        $row = $query->fetch_assoc();
+        //return "Hi!";
+        return $row['test']; 
     }
 
     private function getWeb1Env() {
