@@ -4,42 +4,43 @@ class Database {
 
     private $env;
     private $dbConnection;
-    const DBNAME = 'webshop';
+
+    private $hostname;
+    private $username;
+    private $password;
+    private $database;
 
     public function __construct() {
 
         $this->env = $this->getWeb1Env();
 
         // Infos we need to connect to the database.
-        $hostname = "";
-        $username = "";
-        $password = "";
-        $database = DBNAME;
+        $this->database = DBNAME;
 
         // Local docker development environment.
         if ($this->env == "DEV")
         {
-            $hostname = getenv('DEV_DB_HOST');
-            $username = getenv('DEV_DB_USER');
-            $password = getenv("DEV_DB_PASSWORD");
+            $this->hostname = getenv('DEV_DB_HOST');
+            $this->username = getenv('DEV_DB_USER');
+            $this->password = getenv("DEV_DB_PASSWORD");
         } elseif ($this->env == "TEST") { // The travis.ci environment.
-            $hostname = "localhost"; 
-            $username = "travis";
-            $password = "";
+            $this->hostname = "localhost"; 
+            $this->username = "travis";
+            $this->password = "";
         } elseif ($this->env == "PROD") {
             $url = getenv('JAWSDB_URL');
             $dbparts = parse_url($url);
 
-            $hostname = $dbparts['host'];
-            $username = $dbparts['user'];
-            $password = $dbparts['pass'];
+            $this->hostname = $dbparts['host'];
+            $this->username = $dbparts['user'];
+            $this->password = $dbparts['pass'];
             //$database = ltrim($dbparts['path'],'/');
         } else {
             die("Could not set database connection parameters!");
         }
 
         // Create connection
-        $this->dbConnection = new mysqli($hostname, $username, $password);
+        $this->dbConnection = new mysqli($this->hostname, $this->username, $this->password);
         $this->seedDB();
     }
 
@@ -50,12 +51,14 @@ class Database {
     // Let us put some data in the database.
     private function seedDB() {
 
-        if ($this->dbExists(DBNAME)) {
-            $this->dropDB(DBNAME);
-        } 
-        $this->createDB(DBNAME);
+        $db = $this->database;
 
-        $this->dbConnection->select_db(DBNAME);
+        if ($this->dbExists($db)) {
+            $this->dropDB($db);
+        } 
+        $this->createDB($db);
+
+        $this->dbConnection->select_db($db);
     }
 
     private function dropDB($dbName) {
