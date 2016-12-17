@@ -15,7 +15,7 @@ class Database {
         $this->env = $this->getWeb1Env();
 
         // Infos we need to connect to the database.
-        $this->database = DBNAME;
+        $this->database = "webshop";
 
         // Local docker development environment.
         if ($this->env == "DEV")
