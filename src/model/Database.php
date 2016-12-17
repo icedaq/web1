@@ -4,6 +4,7 @@ class Database {
 
     private $env;
     private $dbConnection;
+    const DBNAME = 'webshop';
 
     public function __construct() {
 
@@ -13,7 +14,7 @@ class Database {
         $hostname = "";
         $username = "";
         $password = "";
-        $database = "";
+        $database = DBNAME;
 
         // Local docker development environment.
         if ($this->env == "DEV")
@@ -21,12 +22,10 @@ class Database {
             $hostname = getenv('DEV_DB_HOST');
             $username = getenv('DEV_DB_USER');
             $password = getenv("DEV_DB_PASSWORD");
-            $database = getenv("DEV_DB_DB");
         } elseif ($this->env == "TEST") { // The travis.ci environment.
             $hostname = "localhost"; 
             $username = "travis";
             $password = "";
-            $database = "webshop";
         } elseif ($this->env == "PROD") {
             $url = getenv('JAWSDB_URL');
             $dbparts = parse_url($url);
@@ -34,17 +33,52 @@ class Database {
             $hostname = $dbparts['host'];
             $username = $dbparts['user'];
             $password = $dbparts['pass'];
-            $database = ltrim($dbparts['path'],'/');
+            //$database = ltrim($dbparts['path'],'/');
         } else {
             die("Could not set database connection parameters!");
         }
 
         // Create connection
         $this->dbConnection = new mysqli($hostname, $username, $password);
+        $this->seedDB();
     }
 
     public function isConnected() {
         return !$this->dbConnection->connect_error;
+    }
+
+    // Let us put some data in the database.
+    private function seedDB() {
+
+        if ($this->dbExists(DBNAME)) {
+            $this->dropDB(DBNAME);
+        } 
+        $this->createDB(DBNAME);
+
+        $this->dbConnection->select_db(DBNAME);
+    }
+
+    private function dropDB($dbName) {
+        $this->dbConnection->query("DROP DATABASE ".$dbName);
+    }
+
+    private function createDB($dbName) {
+        $this->dbConnection->query("CREATE DATABASE ".$dbName);
+    }
+
+    public function dbExists($dbName) {
+        // statement to execute
+        $sql = 'SELECT COUNT(*) AS `exists` FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMATA.SCHEMA_NAME="'.$dbName.'"';
+
+        // execute the statement
+        $query = $this->dbConnection->query($sql);
+        if ($query === false) {
+            throw new Exception($mysqli->error, $mysqli->errno);
+        }
+
+        // extract the value
+        $row = $query->fetch_object();
+        return (bool) $row->exists; 
     }
 
     private function getWeb1Env() {
