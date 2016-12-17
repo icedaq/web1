@@ -2,14 +2,18 @@ version: "2"
 
 services:
   web:
-    image: php:7.0-apache
+    image: icedaq/web:latest
     restart: always
-    environment: 
-      DEV_DB_HOST: db:3306
+    environment:
+      WEB1_ENV: DEV
+      DEV_DB_HOST: mysql
+      DEV_DB_DB: webshop
+      DEV_DB_USER: webshop
       DEV_DB_PASSWORD: webshop
     ports:
       - "8080:80"
     volumes:
+     - .:/tmp/web1
      - ./src:/var/www/html
     depends_on:
      - mysql
