@@ -16,3 +16,8 @@ Hello World!
 ```
 
 Requires docker and docker-compose (>= 1.6).
+
+Tests can be run locally using:
+```
+$ docker exec -ti web1_web_1 runTests
+```
