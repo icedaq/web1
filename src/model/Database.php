@@ -4,6 +4,8 @@ require_once("Catalog.php");
 
 class Database {
 
+    private static $db = NULL;
+
     private $env;
     private $dbConnection;
 
@@ -11,6 +13,13 @@ class Database {
     private $username;
     private $password;
     private $database;
+
+    static function getInstance() {
+        if (NULL == self::$db) {
+           self::$db = new Database();
+        }
+        return self::$db;
+    }
 
     public function __construct() {
 
@@ -44,11 +53,9 @@ class Database {
         // Create connection
         $this->dbConnection = new mysqli($this->hostname, $this->username, $this->password);
 
-        if (!$this->dbExists($this->database)) {
-            $this->seed();
-        } else {
+        if (($this->dbExists($this->database)) && ($this->tableExists("Products"))) {
             $this->dbConnection->select_db($this->database);
-        }
+        } 
     }
 
     public function isConnected() {
@@ -81,6 +88,21 @@ class Database {
 
     private function createDB($dbName) {
         $this->dbConnection->query("CREATE DATABASE ".$dbName);
+    }
+
+    public function tableExists($tableName) {
+        // statement to execute
+        $sql = 'SELECT COUNT(*) AS `exists` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME="'.$tableName.'"';
+
+        // execute the statement
+        $query = $this->dbConnection->query($sql);
+        if ($query === false) {
+            throw new Exception($mysqli->error, $mysqli->errno);
+        }
+
+        // extract the value
+        $row = $query->fetch_object();
+        return (bool) $row->exists; 
     }
 
     public function dbExists($dbName) {

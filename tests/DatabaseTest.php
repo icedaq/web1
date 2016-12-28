@@ -10,7 +10,7 @@ class DatabaseTest extends TestCase
     private $db;
 
     protected function setUp(){
-       $this->db = new Database(); 
+        $this->db = Database::getInstance(); 
     }
 
     public function testConnection()

@@ -21,7 +21,7 @@ class Catalog {
     // Load all the products from the database.
     private function load() {
 
-      $db = new Database(); 
+      $db = Database::getInstance(); 
       $con = $db->getConnection();
 
       $this->dbConnection->query("DROP DATABASE ".$dbName);
@@ -42,7 +42,7 @@ class Catalog {
     // Create a default set of products.
     public function seed() {
 
-      $db = new Database(); 
+      $db = Database::getInstance(); 
       $con = $db->getConnection();
 
       // Create the table for the categories.
