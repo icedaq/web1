@@ -2,7 +2,7 @@
 
 require("model/Database.php");
 
-$db = new Database();
+$db=Database::getInstance();
 $db->seed();
 echo $db->debug();
 
