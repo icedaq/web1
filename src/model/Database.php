@@ -71,9 +71,12 @@ class Database {
 
         $db = $this->database;
 
-        $this->dropDB($db);
-    
-        $this->createDB($db);
+        if ($this->env != "PROD")
+        {
+            $this->dropDB($db); 
+            $this->createDB($db);
+        }
+
         $this->dbConnection->select_db($db);
 
         // Seed the product catalog.
