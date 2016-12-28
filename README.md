@@ -21,3 +21,8 @@ Tests can be run locally using:
 ```
 $ docker exec -ti web1_web_1 runTests
 ```
+
+The database in the dev environment can be accessed using:
+```
+docker exec -ti web1_mysql_1 mysql -u root -p
+```
