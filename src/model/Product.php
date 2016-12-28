@@ -16,7 +16,7 @@ class Product {
     
     }
 
-    public static function New($name, $price, $description, $category, $image) {
+    public static function Create($name, $price, $description, $category, $image) {
 
         $prod = new Product();
         $prod->name = $name;
@@ -31,7 +31,7 @@ class Product {
     // Save this object to the database.
     public function save() {
 
-      $db = new Database(); 
+      $db = Database::getInstance(); 
       $con = $db->getConnection();
 
       $stmt = $con->prepare("INSERT INTO Products (id, price, name, description, category, image) VALUES (NULL, ?, ?, ?, ?, ?);");

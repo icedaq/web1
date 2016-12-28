@@ -68,7 +68,7 @@ class Catalog {
       $con->query($query);
 
       // We build the product objects and let them store themself.
-      $p = Product::New("Picture1", "1.00", "Cute picture", 1, "image1.png"); 
+      $p = Product::Create("Picture1", "1.00", "Cute picture", 1, "image1.png"); 
       $p->save();
     }
 }
