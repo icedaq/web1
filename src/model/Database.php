@@ -1,5 +1,7 @@
 <?php
 
+require_once("Catalog.php");
+
 class Database {
 
     private $env;
@@ -41,32 +43,36 @@ class Database {
 
         // Create connection
         $this->dbConnection = new mysqli($this->hostname, $this->username, $this->password);
-        $this->seedDB();
+
+        if (!$this->dbExists($this->database)) {
+            $this->seed();
+        } else {
+            $this->dbConnection->select_db($this->database);
+        }
     }
 
     public function isConnected() {
         return !$this->dbConnection->connect_error;
     }
 
+    public function getConnection() {
+        return $this->dbConnection;
+    }
+
     // Let us put some data in the database.
-    private function seedDB() {
+    public function seed() {
 
         $db = $this->database;
 
-        if ($this->dbExists($db)) {
-            $this->dropDB($db);
-        } 
+        $this->dropDB($db);
+    
         $this->createDB($db);
-
         $this->dbConnection->select_db($db);
 
-        // Seed data to the database here.
-        $this->dbConnection->query("CREATE TABLE TEST ( test varchar(50) )");
-        $insert = $this->dbConnection->query("INSERT INTO TEST (test) VALUES ('Hi, Pascal!')");
-        if (!$insert === TRUE)
-        {
-            echo $this->dbConnection->error;
-        }
+        // Seed the product catalog.
+        $catalog = new Catalog();
+        $catalog->seed();
+
     }
 
     private function dropDB($dbName) {
@@ -93,7 +99,7 @@ class Database {
     }
 
     public function debug() {
-        $query = $this->dbConnection->query("SELECT * FROM TEST");
+        $query = $this->dbConnection->query("SELECT * FROM Products");
         if ($query === false) {
             throw new Exception($mysqli->error, $mysqli->errno);
         }
@@ -101,7 +107,7 @@ class Database {
         // extract the value
         $row = $query->fetch_assoc();
         //return "Hi!";
-        return $row['test']; 
+        return $row['name']; 
     }
 
     private function getWeb1Env() {
