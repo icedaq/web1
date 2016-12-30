@@ -8,16 +8,20 @@ class Database {
 
     private $env;
     private $dbConnection;
+	private $isEmpty;
 
     private $hostname;
     private $username;
     private $password;
     private $database;
 
+
+
     static function getInstance() {
         if (NULL == self::$db) {
            self::$db = new Database();
-        }
+		}
+
         return self::$db;
     }
 
@@ -55,7 +59,9 @@ class Database {
 
         if (($this->dbExists($this->database)) && ($this->tableExists("Products"))) {
             $this->dbConnection->select_db($this->database);
-        } 
+		} else {
+			$this->isEmpty = true;
+		}
     }
 
     public function isConnected() {
@@ -64,7 +70,11 @@ class Database {
 
     public function getConnection() {
         return $this->dbConnection;
-    }
+	}
+
+	public function isEmpty() {
+		return $this->isEmpty;
+	}
 
     // Let us put some data in the database.
     public function seed() {
@@ -81,8 +91,9 @@ class Database {
 
         // Seed the product catalog.
         $catalog = new Catalog();
-        $catalog->seed();
+		$catalog->seed();
 
+		$this->isEmpty = false;
     }
 
     private function dropDB($dbName) {
