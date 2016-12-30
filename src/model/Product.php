@@ -14,7 +14,7 @@ class Product {
     public function __construct() {
 
     
-    }
+	}
 
     public static function Create($name, $price, $description, $category, $image) {
 
@@ -25,20 +25,30 @@ class Product {
         $prod->category = $category;
         $prod->image = $image;
 
-        return $prod;
-    }
+		$prod->save();
 
+        return $prod;
+	}
+
+	public function getId() {
+		return $this->id;
+	}
+
+	public function getName() {
+		return $this->name;
+	}
     // Save this object to the database.
-    public function save() {
+    private function save() {
 
       $db = Database::getInstance(); 
       $con = $db->getConnection();
 
       $stmt = $con->prepare("INSERT INTO Products (id, price, name, description, category, image) VALUES (NULL, ?, ?, ?, ?, ?);");
       $stmt->bind_param("dssis", $this->price, $this->name, $this->description, $this->category, $this->image);
-      
-      $stmt->execute();
 
+	  $stmt->execute();
+
+	  $this->id = $stmt->insert_id;
     } 
 
 
