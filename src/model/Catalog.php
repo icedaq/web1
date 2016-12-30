@@ -9,34 +9,47 @@ class Catalog {
     private $products = array(); 
 
     public function __construct() {
-
-        //$products
-
+		$this->load();
     }
 
-    public function addProduct() {
-        //TODO: Implement this.
+    public function addProduct($name, $price, $description, $category, $image) {
+		$p = Product::Create($name, $price, $description, $category, $image);
+		array_push($this->products, $p);
     }
 
     // Load all the products from the database.
     private function load() {
 
       $db = Database::getInstance(); 
-      $con = $db->getConnection();
+	  $con = $db->getConnection();
 
-      $this->dbConnection->query("DROP DATABASE ".$dbName);
+	  // Where to place this?
+	  if ($db->isEmpty()) {
+		$db->seed();
+	  } else {
+
+      	$query = "SELECT * FROM Catalog ORDER by ID DESC";
       
-      $query = "SELECT * FROM Catalog ORDER by ID DESC";
-      
-      if ($result = $con->query($query)) {
-          /* fetch object array */
-          while ($obj = $result->fetch_object("Product")) {
-              printf ("%s (%s)\n", $obj->Name, $obj->CountryCode);
-          }
-          /* free result set */
-          $result->close();
-      }
-    }
+      	if ($result = $con->query($query)) {
+          	/* fetch object array */
+         	 while ($prod = $result->fetch_object("Product")) {
+			  	array_push($this->products, $p);
+          	}
+          	/* free result set */
+          	$result->close();
+      	}
+
+	  }
+
+	}
+
+	public function getProductByID($id) {
+		foreach ($this->products as $value) {
+			if($value->getId() == $id) {
+				return $value;
+			}
+		}
+	}
 
     // Product: 20 Products. Options. Categories.
     // Create a default set of products.
@@ -68,7 +81,6 @@ class Catalog {
       $con->query($query);
 
       // We build the product objects and let them store themself.
-      $p = Product::Create("Picture1", "1.00", "Cute picture", 1, "image1.png"); 
-      $p->save();
+      $this->addProduct("Picture1", "1.00", "Cute picture", 1, "image1.png"); 
     }
 }
