@@ -22,25 +22,17 @@ class Catalog {
 
       $db = Database::getInstance(); 
 	  $con = $db->getConnection();
-
-	  // Where to place this?
-	  if ($db->isEmpty()) {
-		$db->seed();
-	  } else {
-
-      	$query = "SELECT * FROM Catalog ORDER by ID DESC";
       
-      	if ($result = $con->query($query)) {
-          	/* fetch object array */
-         	 while ($prod = $result->fetch_object("Product")) {
-			  	array_push($this->products, $p);
+      $query = "SELECT * FROM Products ORDER by ID DESC";
+  
+      if ($result = $con->query($query)) {
+         	/* fetch object array */
+        	 while ($prod = $result->fetch_object("Product")) {
+			  	array_push($this->products, $prod);
           	}
           	/* free result set */
           	$result->close();
-      	}
-
-	  }
-
+      }
 	}
 
 	public function getProductByID($id) {
@@ -82,5 +74,6 @@ class Catalog {
 
       // We build the product objects and let them store themself.
       $this->addProduct("Picture1", "1.00", "Cute picture", 1, "image1.png"); 
+      $this->addProduct("Cat picture!", "0.50", "Super cute cat picture", 1, "image2.png"); 
     }
 }
