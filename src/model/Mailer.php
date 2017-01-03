@@ -20,7 +20,7 @@ class Mailer {
                 {
                 "email": "icedaq@bluewin.ch"
                 }
-            ]
+            ],
             "subject": "Your order!"
             }
         ],
