@@ -29,7 +29,7 @@ class Mailer {
         ]
         }');
 
-        $apiKey = getenv('SENDGRID_API_KEY');
+        $apiKey = getenv('SENDGRID_API');
         $sg = new \SendGrid($apiKey);
 
         $response = $sg->client->mail()->send()->post($request_body);
