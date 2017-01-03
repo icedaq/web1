@@ -36,7 +36,12 @@ class Product {
 
 	public function getName() {
 		return $this->name;
+    }
+
+	public function getPrice() {
+		return $this->price;
 	}
+
     // Save this object to the database.
     private function save() {
 
@@ -50,6 +55,4 @@ class Product {
 
 	  $this->id = $stmt->insert_id;
     } 
-
-
 }
