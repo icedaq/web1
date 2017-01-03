@@ -5,38 +5,57 @@ require_once("../libs/sendgrid-php/sendgrid-php.php");
 // Simple class to send email notifications.
 class Mailer {
 
-    // First little test.
-    public static function sendMail() {
+    public static function sendMail($clientAddress, $body) {
+
+
         $request_body = json_decode('{
           "personalizations": [
             {
             "to": [
                 {
-                "email": "icedaq@bluewin.ch"
+                "email": "'.$clientAddress.'"
                 }
             ],
-            "subject": "Hello World from the SendGrid PHP Library!"
+            "cc": [
+                {
+                "email": "icedaq@bluewin.ch"
+                }
+            ]
+            "subject": "Your order!"
             }
         ],
         "from": {
-            "email": "test@example.com"
+            "email": "noreply@projweb1.herokuapp.com"
         },
         "content": [
             {
             "type": "text/plain",
-            "value": "Hello, Email!"
+            "value": "'.$body.'"
             }
         ]
         }');
 
-        $apiKey = getenv('SENDGRID_API');
-        $sg = new \SendGrid($apiKey);
+        if (Mailer::getWeb1Env() == "PROD")
+        {
+            $apiKey = getenv('SENDGRID_API');
+            $sg = new \SendGrid($apiKey);
 
-        $response = $sg->client->mail()->send()->post($request_body);
-        echo $response->statusCode();
-        echo $response->body();
-        echo $response->headers();
+            $response = $sg->client->mail()->send()->post($request_body);
+            return $response->statusCode();
+        } else {
+            // We do not send mails in dev and test.
+            // Maybe print some debug output here.
+        }
+    }
+
+    private static function getWeb1Env() {
+        $env = getenv('WEB1_ENV');
+        if ( $env != "") {
+            return $env;
+        } else {
+            die("WEB1_ENV environment variable is not set!");
+        }
     }
 }
 
-Mailer::sendMail();
+Mailer::sendMail("pascal.liniger@gmail.com", "This is the body of the message.");
