@@ -7,7 +7,6 @@ class Mailer {
 
     // First little test.
     public static function sendMail() {
-
         $request_body = json_decode('{
           "personalizations": [
             {
@@ -38,5 +37,6 @@ class Mailer {
         echo $response->body();
         echo $response->headers();
     }
-
 }
+
+Mailer::sendMail();
