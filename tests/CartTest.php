@@ -17,9 +17,34 @@ class CartTest extends TestCase
        $this->cart->addProduct(1,5);
        $this->cart->updateProduct(1,3);
 
-       $theCart = $this->cart->getCart();
-       $howMany = $theCart[$this->cart->getPosOfProduct(1)]["quantity"];
+       $howMany = $this->cart->productQuantity(1);
 
        $this->assertEquals(3, $howMany);
     }
+
+    public function testCartPrice()
+    {
+       $this->cart->addProduct(1,3);
+       $this->cart->addProduct(2,5);
+
+       $price = $this->cart->cartPrice();
+
+       $this->assertEquals(5.5, $price);
+    }
+
+    // Test if the cart is stored in the session of the user.
+    public function testCartSession() 
+    {
+        $cart = ShoppingCart::load();
+
+        $cart->addProduct(1,5);
+        $cart->addProduct(2,6);
+        $oldPrice = $cart->cartPrice();
+
+        $newCart = ShoppingCart::load();
+        $newPrice = $newCart->cartPrice();
+
+       $this->assertEquals($oldPrice, $newPrice);
+    }
+
 }
