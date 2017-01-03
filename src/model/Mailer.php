@@ -43,10 +43,10 @@ class Mailer {
             $response = $sg->client->mail()->send()->post($request_body);
             
             // DEBUG
-            echo $request_body."\n";
-            echo $response->statusCode();
-            echo $response->headers();
-            echo $response->body();
+            //echo $request_body."\n";
+            //echo $response->statusCode();
+            //echo $response->headers();
+            //echo $response->body();
             return $response->statusCode();
         } else {
             // We do not send mails in dev and test.
@@ -63,5 +63,3 @@ class Mailer {
         }
     }
 }
-
-Mailer::sendMail("pascal.liniger@gmail.com", "This is the body of the message.");
