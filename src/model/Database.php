@@ -15,8 +15,6 @@ class Database {
     private $password;
     private $database;
 
-
-
     static function getInstance() {
         if (NULL == self::$db) {
            self::$db = new Database();
