@@ -6,6 +6,10 @@ use PHPUnit\Framework\TestCase;
 
 class CatalogTest extends TestCase
 {
+     protected function setUp(){
+         $db = Database::getInstance();
+         $db->seed();
+    }
 
     public function testGetProduct()
 	{

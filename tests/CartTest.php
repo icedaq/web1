@@ -9,6 +9,8 @@ class CartTest extends TestCase
     private $cart;
 
     protected function setUp(){
+        $db = Database::getInstance();
+        $db->seed();
         $this->cart = new ShoppingCart(); 
     }
 
