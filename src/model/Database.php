@@ -1,6 +1,7 @@
 <?php
 
 require_once("Catalog.php");
+require_once("UserManager.php");
 
 class Database {
 
@@ -89,7 +90,11 @@ class Database {
 
         // Seed the product catalog.
         $catalog = new Catalog();
-		$catalog->seed();
+        $catalog->seed();
+
+        // Seed the users.
+        $users = new UserManager();
+        $users->seed();
 
 		$this->isEmpty = false;
     }
