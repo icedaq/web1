@@ -9,10 +9,21 @@ class usersController {
 
     private $model;
     private $view;
+    private $id;
 
     public function __construct() {
         $this->model = new UserManager();
         $this->view = new UsersView();
+    }
+
+    public function setId($id) {
+        $this->id =$id;
+    }
+
+    public function consumeId() {
+        $theid = $this->id;
+        $this->id = null;
+        return $theid;
     }
 
     public function login() {
