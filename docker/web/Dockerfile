@@ -2,6 +2,9 @@ FROM php:7.0-apache
 
 MAINTAINER Pascal Liniger <pascal.liniger@gmail.com>
 
+# Enable rewrite module
+RUN a2enmod rewrite
+
 # Install mysqli
 RUN docker-php-ext-install mysqli
 
