@@ -32,8 +32,8 @@ class cartController {
     }
 
     public function add() {
-        if (isset($this->params['prodId'])) {
-            echo "jes";
+        if (isset($this->params['prodId']) && isset($this->params['quantity'])) {
+            $this->model->addProduct($this->params['prodId'], $this->params['quantity']);
         }
     }
     
