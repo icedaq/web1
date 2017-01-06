@@ -41,6 +41,21 @@ class Catalog {
 				return $value;
 			}
 		}
+    }
+
+    public function filterProductsByName($term) {
+
+        $result = array();
+
+        foreach ($this->products as $value) {
+            $littleHaystack = strtolower($value->getName());
+            $littleNeedle = strtolower($term);
+            if(strpos($littleHaystack, $littleNeedle) !== false) {
+                array_push($result, $value);
+			}
+        }
+
+        return $result;
 	}
 
     // Product: 20 Products. Options. Categories.
