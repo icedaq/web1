@@ -11,13 +11,23 @@ class UserManager {
     public function __construct() {
     }
 
+    // TODO: Add country.
+
     public function addUser($login, $password, $firstName, $lastName, $street, $houseNumber, $city, $zip, $isAdmin) {
 		User::Create($login, $password, $firstName, $lastName, $street, $houseNumber, $city, $zip, $isAdmin);
     }
 
 	public function getUserByID($id) {
-		foreach ($this->products as $value) {
+		foreach ($this->users as $value) {
 			if($value->getId() == $id) {
+				return $value;
+			}
+		}
+    }
+    
+    public function getUserByLogin($login) {
+		foreach ($this->users as $value) {
+			if($value->getName() == $login) {
 				return $value;
 			}
 		}
