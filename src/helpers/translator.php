@@ -1,7 +1,7 @@
 <?php
 
 if (isset($_GET['language'])) {
-    // TODO: Set cookie.
+    setcookie("language", $_GET['language']);
 }
 
 function t($key) {
