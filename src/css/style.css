@@ -72,7 +72,7 @@ html, body{
      * between its children, with the children at either
      * end laying flush against the container's edges.
      */
-    justify-content: space-between;
+    justify-content: center;
 
     /**
      * Align the children in the center, along
@@ -84,9 +84,99 @@ html, body{
     padding: 10px;
     background-color: #415F69;
     color: #ffffff;
+    text-align: center;
 }
 main{
     background-color: #D9E9EF;
     line-height: 1;
     color: #172e36;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 1em;
+}
+main p{
+
+    line-height: 1;
+    color: #172e36;
+    padding-top: 1em;
+    padding: 1em;
+}
+main h1{
+    line-height:1;
+    text-align: center;
+    font-size: 2em;
+}
+main h2{
+    line-height:1;
+    text-align: center;
+    font-size: 1.5em;
+    width:100%;
+}
+.item-wrapper {
+    padding: 30px;
+}
+
+.item {
+    min-width: 80px;
+    min-height: 80px;
+    max-height: 200px;
+    max-width: 200px;
+    display: flex;
+    border: 1px solid black;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+.item-header.text-center {
+    padding: 10px;
+    border-bottom: 1px solid black;
+}
+
+.item-body {
+    flex: 1;
+}
+.relative{
+    position: relative;
+}
+
+.add-icon{
+    position: absolute;
+    padding: 10px;
+    bottom: 10px;
+    right: 10px;
+    background-color: lightgray;
+    border:1px solid gray;
+}
+
+.add-icon:hover{
+    background-color: gray;
+    transition-duration: 500ms;
+    color: white;
+    cursor: pointer;
+}
+.detail-image{
+    width: 100%;
+    padding: 2em;
+}
+table .detail-information-image{
+    font-size: 2em;
+    min-width:30px;
+    text-align: left;
+}
+table th, td{
+    min-width:50px;
+    text-align: left;
+    padding: 1em;
+    border-bottom: 1px solid #ddd;
+
+}
+button{
+    width: 100px;
+    font-size: 1em;
+    color: #FFFFFF;
+    background-color: #415F69;
+    border-radius: 4px;
+    justify-content: flex-end;
 }
