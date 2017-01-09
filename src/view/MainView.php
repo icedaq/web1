@@ -21,15 +21,22 @@ class MainView {
     }
 
     // Todo: Highlight current menu item.
-    public static function renderNavigation() {
+    //is-site-header-item-selected"
+    public static function renderNavigation($current) {
       echo       '<div class="siteHeader">
                         <div class="siteHeader__section">
                             <div class="siteHeader__item siteHeaderLogo">
                                 <img src="../images/aperture_logo.gif" alt="Firmen Logo" style="height:20px;" >
-                            </div>
-                            <div class="siteHeader__item siteHeaderButton">Action</div>
-                            <div class="siteHeader__item siteHeaderButton">Catalog</div>
-                            <div class="siteHeader__item siteHeaderButton"><label>Search</label> <input type="text">
+                            </div>';
+
+            if ($current == "catalog") {
+            echo '                  <div class="siteHeader__item siteHeaderButton">Action</div>
+                                    <div class="siteHeader__item siteHeaderButton is-site-header-item-selected ">Catalog</div>';
+            } else {
+            echo '                  <div class="siteHeader__item siteHeaderButton">Action</div>
+                                    <div class="siteHeader__item siteHeaderButton">Catalog</div>';
+            }
+            echo '                <div class="siteHeader__item siteHeaderButton"><label>Search</label> <input type="text">
                                 </input></div>
                             <div class="siteHeader__item siteHeaderLogo">
                                 <i class="fa fa-search"></i>
