@@ -49,6 +49,12 @@ html, body{
     background-color: #415F69;
     border-radius: 4px;
 }
+.item_list{
+    color: #415F69;
+    border-radius: 4px;
+    align-items: center;
+    justify-content: center;
+}
 
 .siteHeaderLogo {
     font-size: 20px;
@@ -94,6 +100,7 @@ main{
     flex-wrap: wrap;
     justify-content: center;
     padding-top: 1em;
+    padding-bottom: 2em;
 }
 main p{
 
@@ -165,11 +172,23 @@ table .detail-information-image{
     min-width:30px;
     text-align: left;
 }
-table th, td{
+table td{
     min-width:50px;
     text-align: left;
     padding: 1em;
     border-bottom: 1px solid #ddd;
+
+}
+table td .special{
+   font-weight: bold;
+
+}
+table th{
+    min-width:50px;
+    text-align: left;
+    padding: 1em;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
 
 }
 button{
