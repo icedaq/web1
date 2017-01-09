@@ -4,7 +4,13 @@ $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $components = explode('/', $path);
 
 // Front-Controller with controller-centric routing.
-$controllerclass = $components[1]."Controller";
+if ($components[1] != "")
+{
+    $controllerclass = $components[1]."Controller";
+} else {
+    $controllerclass = "homeController";
+    $components[2] = "home";
+}
 
 include_once("controller/".$controllerclass.".php");
 
