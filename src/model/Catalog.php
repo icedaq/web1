@@ -35,6 +35,10 @@ class Catalog {
       }
 	}
 
+	public function getProducts() {
+        return $this->products;
+    }
+
 	public function getProductByID($id) {
 		foreach ($this->products as $value) {
 			if($value->getId() == $id) {

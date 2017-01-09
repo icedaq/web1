@@ -13,7 +13,7 @@ class catalogController {
 
     public function __construct() {
         $this->model = new Catalog();
-        $this->view = new CatalogView();
+        $this->view = new CatalogView($this->model);
 
         // Make sure there is some data in the database.
         $db = Database::getInstance(); 
@@ -51,8 +51,7 @@ class catalogController {
     public function show() {
         if ($this->id == null)
         {
-            // TODO: Show all products.
-            echo "Showing all products.";
+            $this->view->renderCatalog();
         } else {
             $id = $this->consumeId();
             // TODO: Show only one product.
