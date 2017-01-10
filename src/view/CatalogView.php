@@ -40,7 +40,7 @@ class CatalogView {
             echo $p->getName();
             echo '</div>';
             echo '<div class="item-body">';
-            echo '<img src="../images/aperture_logo.gif" alt="Firmen Logo" style="height:80px;" >';
+            echo '<img src="'.$p->getImage().'" alt="Firmen Logo" style="height:80px;" >';
             echo '</div>';
             echo '<div class="add-icon">';
             echo '<a href="/catalog/show/'.$p->getId().'"><i class="fa fa-plus"></i></a>';

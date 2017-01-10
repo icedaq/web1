@@ -86,7 +86,7 @@ class Catalog {
       $con->query($query);
 
       // Now add some data. We add the categories and options by hand.
-      $query =  "INSERT INTO Categories (id, name) VALUES (NULL, 'Cool pictures'), (NULL, 'Cooler pictures');";
+      $query =  "INSERT INTO Categories (id, name) VALUES (NULL, 'Animals'), (NULL, 'Persons'), (NULL, 'Landscape'), (NULL, 'Abstract'), (NULL, 'Objects'), (NULL, 'Other');";
       $con->query($query);
       $query =  "INSERT INTO Options (id, name) VALUES (NULL, 'High Rez'), (NULL, 'Ultra Rez!');";
       $con->query($query);
@@ -95,7 +95,27 @@ class Catalog {
       $con->query($query);
 
       // We build the product objects and let them store themself.
-      $this->addProduct("Picture1", "1.00", "Cute picture", 1, "image1.png"); 
-      $this->addProduct("Cat picture!", "0.50", "Super cute cat picture", 1, "image2.png"); 
+      $this->addProduct("Cat!", "1.00", "Super cute cat picture.", 1, "/images/image1.png"); 
+      $this->addProduct("Photographer", "0.70", "Picture of a guy taking a picture.", 2, "/images/image2.png"); 
+      $this->addProduct("Small train", "1.50", "Picture of a small train or something.", 5, "/images/image3.png"); 
+      $this->addProduct("Bird", "1.20", "A bird on some rope.", 1, "/images/image4.png"); 
+      $this->addProduct("Radio", "1.00", "Buttons of a old radio.", 5, "/images/image5.png"); 
+      $this->addProduct("Watch", "0.80", "Picture of a beatiful watch.", 5, "/images/image6.png"); 
+      $this->addProduct("Piano", "0.90", "The keys of a piano.", 5, "/images/image7.png"); 
+      $this->addProduct("Recording tape", "1.00", "Some ancient recording tape.", 5, "/images/image8.png"); 
+      $this->addProduct("Fire!", "1.50", "A though fireman walking out of a fire.", 2, "/images/image9.png"); 
+      $this->addProduct("iMac", "0.40", "Picture of an iMac.", 5, "/images/image10.png"); 
+      $this->addProduct("Nice room", "1.50", "An old fancy room.", 6, "/images/image11.png"); 
+      $this->addProduct("Flowers", "1.00", "Some beautiful flowers.", 3, "/images/image12.png"); 
+      $this->addProduct("Beer", "2.00", "A nice delicous beer!", 6, "/images/image13.png"); 
+      $this->addProduct("Tired fox", "1.20", "Picture of a tired fox.", 1, "/images/image14.png"); 
+      $this->addProduct("Desert", "1.60", "Nice picture of a desert or something.", 3, "/images/image15.png"); 
+      $this->addProduct("Blur", "1.00", "Picture of some nicely blured lights.", 4, "/images/image16.png"); 
+      $this->addProduct("Stones", "0.50", "Beatiful stones in a landscape.", 3, "/images/image17.png"); 
+      $this->addProduct("Skydivers", "1.70", "People skydiving!.", 2, "/images/image18.png"); 
+      $this->addProduct("Spider", "0.50", "A nice big spiderbro!", 1, "/images/image19.png"); 
+      $this->addProduct("Lights", "1.25", "Long exposure shot of some lights.", 4, "/images/image20.png"); 
+        
+    
     }
 }
