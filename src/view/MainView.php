@@ -69,7 +69,7 @@ class MainView {
 
     public static function renderFooter() {
     echo        '<div class="formFooter">
-                    <p>&copy; 2017 by Pascal Liniger and Louis Siegrist</p>
+                    <p>&copy; 2017 by ApertureLab, 10 Downing Street, London SW1A 2AA, UK</p>
                 </div>
                 </body>
                 </html>';
