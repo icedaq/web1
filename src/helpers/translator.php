@@ -1,5 +1,6 @@
 <?php
 if (isset($_GET['language'])) {
+    setcookie("language",'',1,"/");
     setcookie("language", $_GET['language'], time()+60*60*24*30, "/");
 }
 
@@ -24,6 +25,10 @@ function t($key) {
         'de'=>'Nachname',
         'en'=>'Last name' ),
         
+        'email' => array(
+        'de'=>'E-Mail Adresse',
+        'en'=>'Email address' ),
+        
         'street' => array(
         'de'=>'Strasse',
         'en'=>'Street' ),
@@ -43,6 +48,18 @@ function t($key) {
         'country' => array(
         'de'=>'Land',
         'en'=>'Country' ),
+        
+        'countryCH' => array(
+        'de'=>'Schweiz',
+        'en'=>'Switzerland' ),
+        
+        'countryDE' => array(
+        'de'=>'Deutschland',
+        'en'=>'Germany' ),
+        
+        'countryAT' => array(
+        'de'=>'Österreich',
+        'en'=>'Austria' ),
         
         'catalog' => array(
         'de'=>'Katalog',
