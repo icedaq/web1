@@ -18,7 +18,14 @@ class CatalogView {
         MainView::renderFooter(); 
     }
 
-    public function renderCatalogContent() {
+    public function renderProduct($id) {
+        MainView::renderMeta("Product"); // Param is title of the page.
+        MainView::renderNavigation("catalog");
+        $this->renderProductContent($id);         
+        MainView::renderFooter(); 
+    } 
+
+    private function renderCatalogContent() {
 
         // Head
         echo '<main>
@@ -36,14 +43,47 @@ class CatalogView {
             echo '<img src="../images/aperture_logo.gif" alt="Firmen Logo" style="height:80px;" >';
             echo '</div>';
             echo '<div class="add-icon">';
-            echo '<i class="fa fa-plus"></i>';
+            echo '<a href="/catalog/show/'.$p->getId().'"><i class="fa fa-plus"></i></a>';
             echo '</div>';
             echo '</div>';
             echo '</div>';
         }
 
         echo '</main>';
+    }
 
+    // Show details of one product.
+    private function renderProductContent($id) {
+        // Head
+        echo '<main>
+                <h1>Produkt Details</h1><br/>
+                <p>Nun erfahren sie mehr zu dem ausgewählten Bild. Wir hoffen ihne gefällt ihre Wahl. Um den Kauf abzuschliessen müssen sie das Produkt dem Warenkorb zufügen.</p><br/>';
+
+        $product = $this->model->getProductByID($id);
+        echo '<div class="item-body">
+                <img src="'.$product->getImage().'" alt="Firmen Logo" style="width:400px;" >
+             </div>
+                <div class="detail-image">
+                    <h2>Informationen im Überblick</h2>
+                    <p><br/>'.$product->getName().'</p>
+            <table class="detail-information-image" style="width:100%">
+            <tr>
+                <td>'.t("description").'</td>
+                <td>'.$product->getDescription().'</td>
+            </tr>
+            <tr>
+                <td>'.t(category).'</td>
+                <td>'.$product->getCategoryName().'</td>
+            </tr>
+            <tr>
+                <td>'.t("price").'</td>
+                <td>'.$product->getPrice().' CHF</td>
+            </tr>
+        </table>
+    </div>
+    <button type="button">kaufen</button>
+    </main>';
+        
     }
 
 }
