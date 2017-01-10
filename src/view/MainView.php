@@ -25,20 +25,28 @@ class MainView {
     }
 
     public static function renderNavigation($current) {
-      echo       '<div class="siteHeader">
+
+        $selected = array();
+        $selectedHtml = "is-site-header-item-selected";
+        switch($current) {
+            case "catalog":
+                $selected[1] = $selectedHtml;
+                break;
+            case "cart":
+                $selected[2] = $selectedHtml;
+                break;
+        }
+        
+        echo       '<div class="siteHeader">
                         <div class="siteHeader__section">
                             <div class="siteHeader__item siteHeaderLogo">
-                                <img src="../images/aperture_logo.gif" alt="Firmen Logo" style="height:20px;" >
-                            </div>';
-
-            if ($current == "catalog") {
-            echo '                  <div class="siteHeader__item siteHeaderButton">Action</div>
-                                    <div class="siteHeader__item siteHeaderButton is-site-header-item-selected ">'.t("catalog").'</div>';
-            } else {
-            echo '                  <div class="siteHeader__item siteHeaderButton">Action</div>
-                                    <div class="siteHeader__item siteHeaderButton">'.t("catalog").'</div>';
-            }
-            echo '                <div class="siteHeader__item siteHeaderButton"><label>Search</label> <input type="text">
+                            <a href="/">
+                                <img src="../images/aperture_logo.gif" alt="Logo" style="height:20px;" >
+                            </a>
+                            </div>
+                              <div class="siteHeader__item siteHeaderButton">Action</div>
+                                    <div class="siteHeader__item siteHeaderButton '.$selected[1].' "><a href="/catalog/show">'.t("catalog").'</a></div>
+                      <div class="siteHeader__item siteHeaderButton"><label>Search</label> <input type="text">
                                 </input></div>
                             <div class="siteHeader__item siteHeaderLogo">
                                 <i class="fa fa-search"></i>
@@ -48,8 +56,8 @@ class MainView {
                         <div class="siteHeader__section">
                             <div id="setLanDe" class="siteHeader__item siteHeaderButton">de</div>
                             <div id="setLanEn" class="siteHeader__item siteHeaderButton">en</div>
-                            <div class="siteHeader__item siteHeaderLogo is-site-header-item-selected">
-                                <i class="fa fa-shopping-cart"></i>
+                            <div class="siteHeader__item siteHeaderLogo '.$selected[2].'">
+                                <a href="/cart/show"><i class="fa fa-shopping-cart"></i></a>
                             </div>
                             <div class="siteHeader__item siteHeaderLogo">
                                 <i class="fa fa-user"></i>
