@@ -84,6 +84,8 @@ class Database {
         {
             $this->dropDB($db); 
             $this->createDB($db);
+        } else {
+            $this->dropAllTables();
         }
 
         $this->dbConnection->select_db($db);
@@ -97,6 +99,10 @@ class Database {
         $users->seed();
 
 		$this->isEmpty = false;
+    }
+
+    private function dropAllTables() {
+            $this->dbConnection->query("DROP TABLE Products, Categories, Options, ProductsOptions, Users");
     }
 
     private function dropDB($dbName) {
