@@ -32,9 +32,11 @@ class usersController {
             $login = $_POST["login"];
             $pw = $_POST["password"];
             if ($this->model->checkLogin($login, $pw)) {
+                //echo $this->model->getUserByLogin($login);
                 $_SESSION["user"] = $this->model->getUserByLogin($login);
+                $this->view->renderLoginSuccess($_SESSION["user"]);
             } else {
-                //display warning!
+                $this->view->renderLoginFail();
             }
         } else {
             $this->view->renderLogin();

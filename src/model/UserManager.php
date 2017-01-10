@@ -9,6 +9,7 @@ class UserManager {
     private $users = array(); 
 
     public function __construct() {
+        $this->load();
     }
 
     // TODO: Add country.
@@ -16,6 +17,24 @@ class UserManager {
     public function addUser($login, $password, $firstName, $lastName, $street, $houseNumber, $city, $zip, $isAdmin) {
 		User::Create($login, $password, $firstName, $lastName, $street, $houseNumber, $city, $zip, $isAdmin);
     }
+
+    // Load all the users from the database.
+    private function load() {
+
+      $db = Database::getInstance(); 
+	  $con = $db->getConnection();
+      
+      $query = "SELECT * FROM Users ORDER by ID DESC";
+  
+      if ($result = $con->query($query)) {
+         	/* fetch object array */
+        	 while ($user = $result->fetch_object("User")) {
+			  	array_push($this->users, $user);
+          	}
+          	/* free result set */
+          	$result->close();
+      }
+	}
 
 	public function getUserByID($id) {
 		foreach ($this->users as $value) {

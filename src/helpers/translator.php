@@ -39,6 +39,14 @@ function t($key) {
         'username' => array(
         'de'=>'Benutzername',
         'en'=>'Username' ),
+        
+        'welcomeUser' => array(
+        'de'=>'Hallo, ',
+        'en'=>'Hi, ' ),
+
+        'loginFailed' => array(
+        'de'=>'Login fehlgeschlagen!',
+        'en'=>'Login failed!' ),
 
         'password' => array(
         'de'=>'Passwort',

@@ -46,6 +46,10 @@ class User {
 		return $this->login;
     }
 
+	public function getFirstName() {
+		return $this->firstName;
+    }
+
     // Save this object to the database.
     private function save() {
 

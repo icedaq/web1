@@ -1,5 +1,4 @@
 <?php
-
 require_once("helpers/translator.php");
 require_once("MainView.php");
 
@@ -12,9 +11,43 @@ class UsersView {
         MainView::renderFooter(); 
     }
 
+    public function renderLoginFail() {
+        MainView::renderMeta("Login"); // Param is title of the page.
+        MainView::renderNavigation("user");
+        $this->renderLoginFailContent();         
+        MainView::renderFooter(); 
+    }
+
+    public function renderLoginSuccess($user) {
+        MainView::renderMeta("Login"); // Param is title of the page.
+        MainView::renderNavigation("user");
+        $this->renderLoginSuccessContent($user);         
+        MainView::renderFooter(); 
+    }
+
+    private function renderLoginSuccessContent($user) {
+        echo '<main>';
+        echo  '<h1>'.t("welcomeUser").$user->getFirstName().'</h1>';
+        echo '</main>';
+    }
+
     private function renderLoginContent() {
         echo '<main>';
         echo  '<h1>'.t("login").'</h1>';
+        echo '<form action="/users/login" method="post">';
+        echo '<div class="loginElement"><label>'.t('username').'</label></br>';
+        echo '<input name="login"></div>';
+        echo '<label>'.t("password").'</label>';
+        echo '<input type="password" name="password">';
+        echo '<input type="submit" value="'.t("login").'">';
+        echo '</form>';
+        echo '</main>';
+    }
+
+    private function renderLoginFailContent() {
+        echo '<main>';
+        echo  '<h1>'.t("login").'</h1>';
+        echo '<h2>'.t("loginFailed").'</h2>';
         echo '<form action="/users/login" method="post">';
         echo '<div class="loginElement"><label>'.t('username').'</label></br>';
         echo '<input name="login"></div>';
