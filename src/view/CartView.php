@@ -41,7 +41,7 @@ class CartView {
         foreach ($cart as $i) {
             echo '<tr>';
             echo '<td>'.$i->getName().'</td>';
-            echo '<td>$amount</td>';
+            echo '<td>'.$i->getAmount().'</td>';
             echo '<td><div class="item_list">';
             echo '<i class="fa fa-plus"></i>';
             echo '</div></td>';
@@ -51,7 +51,7 @@ class CartView {
             echo '<td><div class="item_list">';
             echo '<i class="fa fa-trash-o"></i>';
             echo '</div></td>';
-            echo '<td>'.$p->getPrice().'</td>';
+            echo '<td>'.$i->getPrice().'</td>';
             echo '</tr>';
         }
 
@@ -69,7 +69,7 @@ class CartView {
         echo '</table>
                 </div>
                 <br><br>
-                <button type="button">Warenkorb leeren</button>
+                <button onclick="clearCart() "type="button">Warenkorb leeren</button>
                 <button type="button">Bestellung absenden</button>
                 <br><br>
                 </main>';

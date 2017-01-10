@@ -1,8 +1,6 @@
 <?php
-
-session_start();
-
 require_once('ShoppingCartItem.php');
+session_start();
 
 // The shopping cart.
 class ShoppingCart {
@@ -19,19 +17,26 @@ class ShoppingCart {
 		}
 	}
 
-    public function addProduct($productID, $quantity) {
+    private function addProduct($productID, $quantity) {
         $item = new ShoppingCartItem($productID, $quantity);
 		array_push($this->cart, $item);
 	}
 
 	public function updateProduct($productID, $newQuantity) {
-		foreach ($this->cart as &$value) {
+        $found = false;
+        foreach ($this->cart as &$value) {
 
 			if ($value->getId() == $productID)
 			{
-				$value->setAmount($newQuantity);
-			}
-		}
+				$value->setAmount($value->getAmount() + $newQuantity);
+                $found = true;
+            }
+        }
+        if (!$found)
+        {
+            $this->addProduct($productID, $newQuantity);
+
+        }
 	}
 
 	public function productQuantity($productID) {

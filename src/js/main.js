@@ -7,6 +7,14 @@ function setLanguage(language)
     location.reload();
 }
 
+function addToCart(id) {
+    $.get("/cart/add?prodId="+id+"&quantity=1");
+}
+
+function clearCart() {
+    $.get("/cart/clear");
+}
+
 // A $( document ).ready() block.
 $( document ).ready(function() {
     $('#setLanDe').on("click", function() {setLanguage("de");});
