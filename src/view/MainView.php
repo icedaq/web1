@@ -16,6 +16,7 @@ class MainView {
                         <link rel="stylesheet" href="/css/reset.css">
                         <link rel="stylesheet" href="/css/style.css">
                         <link rel="stylesheet" href="/css/font-awesome.min.css">
+                        <link rel="stylesheet" href="/css/jquery-ui.min.css">
                         <script src="//code.jquery.com/jquery-3.1.1.min.js"
                             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
                             crossorigin="anonymous"></script>
