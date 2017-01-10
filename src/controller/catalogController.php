@@ -58,5 +58,10 @@ class catalogController {
         }
     }
 
+    public function seed() {
+        $db = Database::getInstance(); 
+        $db->seed();
+    }
+
     
 }
