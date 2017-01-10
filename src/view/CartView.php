@@ -22,10 +22,8 @@ class CartView {
 
         // Head
         echo '<main>
-                <h1>Warenkorb Übersicht</h1><br/>
-                <p>Auf dieser Seite sehen sie eine Übersicht aller Bildkategorien, welche sie ausgewählt haben. Wenn Sie auf das Plus Symbol klicken erhalten sie eine Detailansicht des gewählten Bildes und sie können es aus ihrem Warenkorb entfernen.</p><br/>
+                <h1>Warenkorb</h1><br/>
                 <div class="detail-image">
-        <h2>Informationen im Überblick</h2>
         <table class="detail-information-image" style="width:100%">
             <tr>
                 <th>Product</th>
