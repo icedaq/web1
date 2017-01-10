@@ -23,6 +23,18 @@ function t($key) {
         'catalog' => array(
         'de'=>'Katalog',
         'en'=>'Catalog' ),
+        
+        'category' => array(
+        'de'=>'Kategorie',
+        'en'=>'Category' ),
+        
+        'price' => array(
+        'de'=>'Preis',
+        'en'=>'Price' ),
+        
+        'description' => array(
+        'de'=>'Beschreibung',
+        'en'=>'Description' ),
     
         'content' => array(
         'de'=>'Willkommen auf der Seite ',
