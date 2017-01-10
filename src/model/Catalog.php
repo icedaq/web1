@@ -113,7 +113,7 @@ class Catalog {
       $this->addProduct("Desert", "1.60", "Nice picture of a desert or something.", 3, "/images/image15.png"); 
       $this->addProduct("Blur", "1.00", "Picture of some nicely blured lights.", 4, "/images/image16.png"); 
       $this->addProduct("Stones", "0.50", "Beatiful stones in a landscape.", 3, "/images/image17.png"); 
-      $this->addProduct("Skydivers", "1.70", "People skydiving!.", 2, "/images/image18.png"); 
+      $this->addProduct("Skydivers", "1.70", "People skydiving!", 2, "/images/image18.png"); 
       $this->addProduct("Spider", "0.50", "A nice big spiderbro!", 1, "/images/image19.png"); 
       $this->addProduct("Lights", "1.25", "Long exposure shot of some lights.", 4, "/images/image20.png"); 
         
