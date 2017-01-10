@@ -92,34 +92,19 @@ html, body {
 }
 
 footer.mainFooter {
-    /**
-     * Lay out the children of this container with
-     * flexbox, which is horizontal by default.
-     */
-    display: flex;
-
-    /**
-     * Make the container put as much space as possible
-     * between its children, with the children at either
-     * end laying flush against the container's edges.
-     */
-    justify-content: center;
-
-    /**
-     * Align the children in the center, along
-     * the main axis, which is horizontal in this case.
-     */
     align-items: center;
-
     border-top: 1px solid #D7DBDD;
     padding: 10px;
     background-color: #415F69;
     color: #ffffff;
-    text-align: center;
     width: 100%;
     position: absolute;
     bottom: 0;
     left: 0;
+}
+
+footer p {
+    text-align: center;
 }
 
 main {
