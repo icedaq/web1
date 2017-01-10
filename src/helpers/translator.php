@@ -35,7 +35,11 @@ function t($key) {
         'description' => array(
         'de'=>'Beschreibung',
         'en'=>'Description' ),
-    
+
+        'buy' => array(
+        'de'=>'Jetzt kaufen!',
+        'en'=>'Buy now!' ),
+
         'content' => array(
         'de'=>'Willkommen auf der Seite ',
         'en'=>'Welcome to the page '));
