@@ -42,6 +42,26 @@ class Product {
 		return $this->description;
     }
 
+    // Return an array with the available option(names) for this product.
+	public function getOptions() {
+
+      $options = array();
+
+      $db = Database::getInstance(); 
+	  $con = $db->getConnection();
+      
+      $query = "SELECT Name FROM Options INNER JOIN ProductsOptions ON Options.id = ProductsOptions.idOption WHERE idProduct = ".$this->getId().";";
+  
+      if ($result = $con->query($query)) {
+        	 while ($option = $result->fetch_assoc()) {
+			  	array_push($options, $option['Name']);
+          	}
+          	$result->close();
+      }
+        
+      return $options;
+    }
+
 	public function getCategoryName() {
           
       $db = Database::getInstance(); 

@@ -91,6 +91,9 @@ class Catalog {
       $query =  "INSERT INTO Options (id, name) VALUES (NULL, 'High Rez'), (NULL, 'Ultra Rez!');";
       $con->query($query);
 
+      $query =  "INSERT INTO ProductsOptions (idProduct, idOption) VALUES (1, 1), (1, 2), (2, 1);";
+      $con->query($query);
+
       // We build the product objects and let them store themself.
       $this->addProduct("Picture1", "1.00", "Cute picture", 1, "image1.png"); 
       $this->addProduct("Cat picture!", "0.50", "Super cute cat picture", 1, "image2.png"); 

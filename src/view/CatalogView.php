@@ -81,6 +81,7 @@ class CatalogView {
             </tr>
         </table>
     </div>
+
     <button onclick="addToCart('.$product->getId().')" type="button">'.t("buy").'</button>
     </main>';
         
