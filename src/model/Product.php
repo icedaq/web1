@@ -38,6 +38,29 @@ class Product {
 		return $this->name;
     }
 
+	public function getDescription() {
+		return $this->description;
+    }
+
+	public function getCategoryName() {
+          
+      $db = Database::getInstance(); 
+	  $con = $db->getConnection();
+      
+      $query = "SELECT Name FROM Categories WHERE id = ".$this->category.";";
+  
+      if ($result = $con->query($query)) {
+        	$cat = $result->fetch_assoc();
+          	$result->close();
+      }
+        
+      return $cat['Name'];
+    }
+    
+    public function getImage() {
+		return $this->image;
+    }
+
 	public function getPrice() {
 		return $this->price;
 	}
