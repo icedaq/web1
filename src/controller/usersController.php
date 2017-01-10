@@ -1,8 +1,7 @@
 <?php
-session_start();
-
 require_once("model/UserManager.php");
 require_once("view/UsersView.php");
+session_start();
 
 // This class is used to manage the products.
 class usersController {

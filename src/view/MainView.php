@@ -1,6 +1,7 @@
 <?php
-
 require_once("helpers/translator.php");
+require_once("model/User.php");
+session_start();
 
 // This class contains commonly used html stuff.
 class MainView {
@@ -27,6 +28,11 @@ class MainView {
     }
 
     public static function renderNavigation($current) {
+
+        $username = "Login";
+        if (isset($_SESSION['user'])) {
+            $username = $_SESSION['user']->getName();
+        }
 
         $selected = array();
         $selectedHtml = "is-site-header-item-selected";
@@ -65,7 +71,7 @@ class MainView {
                                 <a href="/cart/show"><i class="fa fa-shopping-cart"></i></a>
                             </div>
                             <div class="siteHeader__item siteHeaderLogo '.$selected[3].'">
-                                <a href="/users/login"><i class="fa fa-user"></i> <span>Login</span></a>
+                                <a href="/users/login"><i class="fa fa-user"></i> <span>'.$username.'</span></a>
                             </div>
                         </div>
                     </div>'; 
