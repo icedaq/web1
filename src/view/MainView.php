@@ -13,9 +13,9 @@ class MainView {
                         <meta charset="UTF-8">
                         <title>ApertureLab - '.$title.'</title>
                         <link rel="icon" href="../favicon.ico" type="image/x-icon">
-                        <link rel="stylesheet" href="../css/reset.css">
-                        <link rel="stylesheet" href="../css/style.css">
-                        <link rel="stylesheet" href="../css/font-awesome.min.css">
+                        <link rel="stylesheet" href="/css/reset.css">
+                        <link rel="stylesheet" href="/css/style.css">
+                        <link rel="stylesheet" href="/css/font-awesome.min.css">
                         <script   src="https://code.jquery.com/jquery-3.1.1.min.js"
                             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
                             crossorigin="anonymous"></script>        
@@ -41,7 +41,7 @@ class MainView {
                         <div class="siteHeader__section">
                             <div class="siteHeader__item siteHeaderLogo">
                             <a href="/">
-                                <img src="../images/aperture_logo.gif" alt="Logo" style="height:20px;" >
+                                <img src="/images/aperture_logo.gif" alt="Logo" style="height:20px;" >
                             </a>
                             </div>
                               <div class="siteHeader__item siteHeaderButton">Action</div>
