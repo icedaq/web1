@@ -54,8 +54,7 @@ class catalogController {
             $this->view->renderCatalog();
         } else {
             $id = $this->consumeId();
-            // TODO: Show only one product.
-            echo "Showing product number: ".$id;
+            $this->view->renderProduct($id);
         }
     }
 
