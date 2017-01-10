@@ -4,6 +4,10 @@ html, body {
     font-family: Arial, SansSerif;
 }
 
+b {
+    font-weight: bold;
+}
+
 .siteHeader {
     /**
      * Lay out the children of this container with
@@ -179,7 +183,12 @@ main h2{
 }
 
 .item-body {
-    flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-body img{
+   margin-top: 20px; 
 }
 
 .relative {
@@ -206,6 +215,7 @@ main h2{
     width: 100%;
     padding: 2em;
 }
+
 
 table .detail-information-image {
     font-size: 2em;

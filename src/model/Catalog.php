@@ -88,10 +88,11 @@ class Catalog {
       // Now add some data. We add the categories and options by hand.
       $query =  "INSERT INTO Categories (id, name) VALUES (NULL, 'Animals'), (NULL, 'Persons'), (NULL, 'Landscape'), (NULL, 'Abstract'), (NULL, 'Objects'), (NULL, 'Other');";
       $con->query($query);
+
       $query =  "INSERT INTO Options (id, name) VALUES (NULL, 'High Rez'), (NULL, 'Ultra Rez!');";
       $con->query($query);
 
-      $query =  "INSERT INTO ProductsOptions (idProduct, idOption) VALUES (1, 1), (1, 2), (2, 1);";
+      $query =  "INSERT INTO ProductsOptions (idProduct, idOption) VALUES (1, 1), (1, 2), (2, 1), (3, 1), (4, 2), (5, 1), (5, 2), (6, 1), (7, 1), (8, 1), (8, 2), (9, 1), (10, 1), (11, 2), (12, 1), (12, 2), (13, 1), (14, 1), (15, 1), (15, 2), (16, 1), (17, 1), (18, 1), (19, 2), (20, 1), (20, 2);";
       $con->query($query);
 
       // We build the product objects and let them store themself.

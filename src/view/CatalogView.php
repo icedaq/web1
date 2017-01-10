@@ -54,37 +54,51 @@ class CatalogView {
 
     // Show details of one product.
     private function renderProductContent($id) {
+
+        // data
+        $product = $this->model->getProductByID($id);
+
         // Head
         echo '<main>
-                <h1>Produkt Details</h1><br/>
-                <p>Nun erfahren sie mehr zu dem ausgewählten Bild. Wir hoffen ihne gefällt ihre Wahl. Um den Kauf abzuschliessen müssen sie das Produkt dem Warenkorb zufügen.</p><br/>';
+                <h1>'.$product->getName().'</h1>';
 
-        $product = $this->model->getProductByID($id);
         echo '<div class="item-body">
-                <img src="'.$product->getImage().'" alt="Firmen Logo" style="width:400px;" >
+                <img src="'.$product->getImage().'" alt="'.$product->getName().'" style="width:400px;" >
              </div>
                 <div class="detail-image">
-                    <h2>Informationen im Überblick</h2>
-                    <p><br/>'.$product->getName().'</p>
             <table class="detail-information-image" style="width:100%">
             <tr>
-                <td>'.t("description").'</td>
+                <td><b>'.t("description").'</b></td>
                 <td>'.$product->getDescription().'</td>
             </tr>
             <tr>
-                <td>'.t(category).'</td>
+                <td><b>'.t(category).'</b></td>
                 <td>'.$product->getCategoryName().'</td>
             </tr>
             <tr>
-                <td>'.t("price").'</td>
+                <td><b>'.t("price").'</b></td>
                 <td>'.$product->getPrice().' CHF</td>
+            </tr>
+            <tr>
+                <td><b>'.t("options").'</b></td>
+                <td>'.$this->renderProductOptions($product).'</td>
             </tr>
         </table>
     </div>
 
-    <button onclick="addToCart('.$product->getId().')" type="button">'.t("buy").'</button>
+    <button id="addToCart" onclick="addToCart('.$product->getId().')" type="button">'.t("buy").'</button>
     </main>';
         
+    }
+
+    private function renderProductOptions($p) {
+        $output = '<select name="option">'; 
+        foreach ($p->getOptions() as $o) {
+            $output = $output.'<option value="'.$o.'">'.$o.'</option>';
+        }
+        $output = $output.'</select>';
+        
+        return $output; 
     }
 
 }

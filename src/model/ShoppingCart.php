@@ -22,6 +22,7 @@ class ShoppingCart {
 		array_push($this->cart, $item);
 	}
 
+    // TODO: Consolidate this a little bit.
 	public function updateProduct($productID, $quantity) {
         $found = false;
         foreach ($this->cart as &$value) {
