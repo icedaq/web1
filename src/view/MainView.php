@@ -47,7 +47,7 @@ class MainView {
                             </div>
                               <div class="siteHeader__item siteHeaderButton">Action</div>
                                     <div class="siteHeader__item siteHeaderButton '.$selected[1].' "><a href="/catalog/show">'.t("catalog").'</a></div>
-                      <div class="siteHeader__item siteHeaderButton"><label>Search</label> <input type="text">
+                      <div class="siteHeader__item siteHeaderButton"><label>Search</label> <input id="searchField" type="text">
                                 </input></div>
                             <div class="siteHeader__item siteHeaderLogo">
                                 <i class="fa fa-search"></i>

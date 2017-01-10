@@ -32,6 +32,24 @@ function clearCart() {
 
 // A $( document ).ready() block.
 $( document ).ready(function() {
+
+    // Setup the language change buttons.
     $('#setLanDe').on("click", function() {setLanguage("de");});
     $('#setLanEn').on("click", function() {setLanguage("en");});
+
+    $( "#searchField" ).autocomplete({
+      source: function( request, response ) {
+        $.ajax({
+          method: "POST",
+          url: "/catalog/search",
+          dataType: "json",
+          data: {
+            term: request.term
+          },
+          success: function( data ) {
+            response( data );
+          }
+        });
+      },
+      minLength: 2}); 
 });
