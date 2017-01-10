@@ -76,28 +76,35 @@ class UsersView {
     
         echo '<main>';
         echo  '<h1>'.t("register").'</h3>';
-        echo '<form action="/users/signup" method="post">';
+        echo '<form id="register" action="/users/signup" method="post">';
         echo '<label>'.t("username").'</label>';
-        echo '<input name="login">';
+        echo '<input name="login" required>';
         echo '<label>'.t("password").'</label>';
-        echo '<input type="password" name="password">';
+        echo '<input type="password" name="password" required>';
         echo '<label>'.t("firstName").'</label>';
-        echo '<input name="firstName">';
+        echo '<input name="firstName" required>';
         echo '<label>'.t("lastName").'</label>';
-        echo '<input name="lastName">';
+        echo '<input name="lastName" required>';
+        echo '<label>'.t("email").'</label>';
+        echo '<input name="email" required>';
         echo '<label>'.t("street").'</label>';
-        echo '<input name="street">';
+        echo '<input name="street" required>';
         echo '<label>'.t("houseNr").'</label>';
-        echo '<input name="houseNumber" type="number">';
+        echo '<input name="houseNumber" type="number" required>';
         echo '<label>'.t("city").'</label>';
         echo '<input name="city">';
         echo '<label>'.t("zip").'</label>';
-        echo '<input name="zip" type="number">';
+        echo '<input name="zip" type="number">'; // 4-5
         echo '<label>'.t("country").'</label>';
-        echo '<input name="country">';
+        echo '<select name="country">';
+        echo '  <option value="ch">'.t("countryCH").'</option>';
+        echo '  <option value="de">'.t("countryDE").'</option>';
+        echo '  <option value="at">'.t("countryAT").'</option>';
+        echo '</select>'; 
         echo '<input type="submit" value="'.t("register").'">';
         echo '</form>';
         echo '</main>';
+        echo '<script> setupValidation(); </script>'; // Setup the validation for this form.
     
     }
 

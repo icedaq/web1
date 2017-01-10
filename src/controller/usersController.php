@@ -65,7 +65,9 @@ class usersController {
             // TODO: Validate
             $this->model->addUser($_POST['login'], $_POST['password'], 
                 $_POST['firstName'],$_POST['lastName'], $_POST['street'], 
-                $_POST['houseNumber'], $_POST['city'], $_POST['zip'], false);    
+                $_POST['houseNumber'], $_POST['city'], $_POST['zip'], false);
+            header("Location: /users/login");
+            die();    
         } else {
             $this->view->renderSignUp();
         }
