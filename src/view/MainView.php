@@ -16,12 +16,14 @@ class MainView {
                         <link rel="stylesheet" href="../css/reset.css">
                         <link rel="stylesheet" href="../css/style.css">
                         <link rel="stylesheet" href="../css/font-awesome.min.css">
+                        <script   src="https://code.jquery.com/jquery-3.1.1.min.js"
+                            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+                            crossorigin="anonymous"></script>        
+                        <script src="/js/main.js"></script>            
                         </head>
                         <body>';
     }
 
-    // Todo: Highlight current menu item.
-    //is-site-header-item-selected"
     public static function renderNavigation($current) {
       echo       '<div class="siteHeader">
                         <div class="siteHeader__section">
@@ -31,10 +33,10 @@ class MainView {
 
             if ($current == "catalog") {
             echo '                  <div class="siteHeader__item siteHeaderButton">Action</div>
-                                    <div class="siteHeader__item siteHeaderButton is-site-header-item-selected ">Catalog</div>';
+                                    <div class="siteHeader__item siteHeaderButton is-site-header-item-selected ">'.t("catalog").'</div>';
             } else {
             echo '                  <div class="siteHeader__item siteHeaderButton">Action</div>
-                                    <div class="siteHeader__item siteHeaderButton">Catalog</div>';
+                                    <div class="siteHeader__item siteHeaderButton">'.t("catalog").'</div>';
             }
             echo '                <div class="siteHeader__item siteHeaderButton"><label>Search</label> <input type="text">
                                 </input></div>
@@ -44,8 +46,8 @@ class MainView {
                         </div>
                         <!-- This section gets pushed to the right side-->
                         <div class="siteHeader__section">
-                            <div class="siteHeader__item siteHeaderButton">de</div>
-                            <div class="siteHeader__item siteHeaderButton">en</div>
+                            <div id="setLanDe" class="siteHeader__item siteHeaderButton">de</div>
+                            <div id="setLanEn" class="siteHeader__item siteHeaderButton">en</div>
                             <div class="siteHeader__item siteHeaderLogo is-site-header-item-selected">
                                 <i class="fa fa-shopping-cart"></i>
                             </div>

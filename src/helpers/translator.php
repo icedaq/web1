@@ -1,6 +1,6 @@
 <?php
 if (isset($_GET['language'])) {
-    setcookie("language", $_GET['language']);
+    setcookie("language", $_GET['language'], time()+60*60*24*30, "/");
 }
 
 function t($key) {
@@ -20,6 +20,10 @@ function t($key) {
         'de'=>'Hausnummer',
         'en'=>'House number' ),
 
+        'catalog' => array(
+        'de'=>'Katalog',
+        'en'=>'Catalog' ),
+    
         'content' => array(
         'de'=>'Willkommen auf der Seite ',
         'en'=>'Welcome to the page '));
