@@ -14,12 +14,9 @@ class CatalogTest extends TestCase
     public function testGetProduct()
 	{
 		// This one should seed the database;
-        $catalog1 = new Catalog(); 
-		$catalog1->addProduct("Miten", 2.05, "Cute AF cat pick.", "1", "anotherimage.jpg"); 
-
         $catalog2 = new Catalog(); 
-		$prod = $catalog2->getProductByID(3);
+        $prod = $catalog2->getProductByID(1);
 
-		$this->assertEquals("Miten", $prod->getName());
+		$this->assertEquals("Cat!", $prod->getName());
     }
 }

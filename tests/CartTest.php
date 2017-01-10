@@ -31,7 +31,7 @@ class CartTest extends TestCase
 
        $price = $this->cart->cartPrice();
 
-       $this->assertEquals(5.5, $price);
+       $this->assertEquals(6.5, $price);
     }
 
     // Test if the cart is stored in the session of the user.
