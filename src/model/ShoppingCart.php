@@ -17,9 +17,26 @@ class ShoppingCart {
 		}
 	}
 
-    private function addProduct($productID, $quantity) {
+    public function addProduct($productID, $quantity) {
         $item = new ShoppingCartItem($productID, $quantity);
 		array_push($this->cart, $item);
+	}
+
+	public function updateProduct($productID, $quantity) {
+        $found = false;
+        foreach ($this->cart as &$value) {
+
+			if ($value->getId() == $productID)
+			{
+				$value->setAmount($quantity);
+                $found = true;
+            }
+        }
+        if (!$found)
+        {
+            $this->addProduct($productID, $newQuantity);
+
+        }
 	}
 
 	public function increaseProduct($productID, $quantity) {
