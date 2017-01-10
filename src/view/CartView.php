@@ -30,29 +30,33 @@ class CartView {
             <tr>
                 <th>Product</th>
                 <th>Anzahl</th>
-                <th>anzeigen</th>
-                <th>bearbeiten</th>
-                <th>entfernen</th>
+                <th>Anzeigen</th>
+                <th>Menge</th>
+                <th>Entfernen</th>
                 <th>Preis</th>
             </tr>';
 
         // Per item
-       $cart = $this->model->getCart();
+        $cart = $this->model->getCart();
         foreach ($cart as $i) {
-            echo '<tr>';
-            echo '<td>'.$i->getName().'</td>';
-            echo '<td>'.$i->getAmount().'</td>';
-            echo '<td><div class="item_list">';
-            echo '<i class="fa fa-plus"></i>';
-            echo '</div></td>';
-            echo ' <td><div class="item_list">';
-            echo '<i class="fa fa-pencil"></i>';
-            echo '</div></td>';
-            echo '<td><div class="item_list">';
-            echo '<i class="fa fa-trash-o"></i>';
-            echo '</div></td>';
-            echo '<td>'.$i->getPrice().'</td>';
-            echo '</tr>';
+            if ($i->getAmount() > 0 )
+            { 
+                echo '<tr>';
+                echo '<td>'.$i->getName().'</td>';
+                echo '<td id="amount'.$i->getId().'">'.$i->getAmount().'</td>';
+                echo '<td><div class="item_list">';
+                echo '<a href="/catalog/show/'.$i->getId().'"><i class="fa fa-info"></i></a>';
+                echo '</div></td>';
+                echo ' <td><div class="item_list">';
+                echo '<i onclick="increaseCartItem('.$i->getId().')" class="fa fa-plus"></i>  </a>';
+                echo '<i onclick="decreaseCartItem('.$i->getId().')" class="fa fa-minus"></i></a>';
+                echo '</div></td>';
+                echo '<td><div class="item_list">';
+                echo '<i onclick="removeCartItem('.$i->getId().')" class="fa fa-trash-o"></i></a>';
+                echo '</div></td>';
+                echo '<td id=price"'.$i->getId().'">'.$i->getPrice().'</td>';
+                echo '</tr>';
+            }
         }
 
         // Total

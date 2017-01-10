@@ -32,7 +32,25 @@ class cartController {
 
     public function add() {
         if (isset($this->params['prodId']) && isset($this->params['quantity'])) {
-            $this->model->updateProduct($this->params['prodId'], $this->params['quantity']);
+            $this->model->increaseProduct($this->params['prodId'], $this->params['quantity']);
+        }
+    }
+
+    public function increase() {
+        if (isset($this->params['prodId'])) {
+            $this->model->increaseProduct($this->params['prodId'], 1);
+        }
+    }
+
+    public function decrease() {
+        if (isset($this->params['prodId'])) {
+            $this->model->decreaseProduct($this->params['prodId'], 1);
+        }
+    }
+
+    public function remove() {
+        if (isset($this->params['prodId'])) {
+            $this->model->removeProduct($this->params['prodId']);
         }
     }
 

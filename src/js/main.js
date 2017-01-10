@@ -11,6 +11,21 @@ function addToCart(id) {
     $.get("/cart/add?prodId="+id+"&quantity=1");
 }
 
+function increaseCartItem(id) {
+    $.get("/cart/increase?prodId="+id);
+    // TODO: Increase the display!
+}
+
+function removeCartItem(id) {
+    $.get("/cart/remove?prodId="+ id);
+    // TODO: Increase the display!
+}
+
+function decreaseCartItem(id) {
+    $.get("/cart/decrease?prodId="+id);
+    // TODO: Increase the display!
+}
+
 function clearCart() {
     $.get("/cart/clear");
 }

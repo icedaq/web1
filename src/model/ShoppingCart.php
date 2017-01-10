@@ -22,13 +22,13 @@ class ShoppingCart {
 		array_push($this->cart, $item);
 	}
 
-	public function updateProduct($productID, $newQuantity) {
+	public function increaseProduct($productID, $quantity) {
         $found = false;
         foreach ($this->cart as &$value) {
 
 			if ($value->getId() == $productID)
 			{
-				$value->setAmount($value->getAmount() + $newQuantity);
+				$value->setAmount($value->getAmount() + $quantity);
                 $found = true;
             }
         }
@@ -38,6 +38,28 @@ class ShoppingCart {
 
         }
 	}
+
+	public function decreaseProduct($productID, $quantity) {
+        foreach ($this->cart as &$value) {
+			if ($value->getId() == $productID)
+            {
+                if ($value->getAmount() > 0 ) {
+				    $value->setAmount($value->getAmount() - $quantity);
+                }
+            }
+        }
+    }
+
+	public function removeProduct($productID) {
+        foreach ($this->cart as &$value) {
+			if ($value->getId() == $productID)
+            {
+                if ($value->getAmount() > 0 ) {
+				    $value->setAmount(0);
+                }
+            }
+        }
+    }
 
 	public function productQuantity($productID) {
 		foreach ($this->cart as &$value) {
