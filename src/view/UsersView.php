@@ -1,31 +1,28 @@
 <?php
 
 require_once("helpers/translator.php");
+require_once("MainView.php");
 
 class UsersView {
 
     public function renderLogin() {
         MainView::renderMeta("Login"); // Param is title of the page.
-        MainView::renderNavigation("cart");
-        $this->renderContent();         
+        MainView::renderNavigation("user");
+        $this->renderLoginContent();         
         MainView::renderFooter(); 
-        echo '<!DOCTYPE html>';
-        echo '<body>';
-        echo  '<h3>Please Login</h3>';
+    }
+
+    private function renderLoginContent() {
+        echo '<main>';
+        echo  '<h1>'.t("login").'</h1>';
         echo '<form action="/users/login" method="post">';
-        echo '<p>';
-        echo '<label>Login</label>';
-        echo '<input name="login">';
-        echo '</p>';
-        echo '<p>';
-        echo '<label>Password</label>';
+        echo '<div class="loginElement"><label>'.t('username').'</label></br>';
+        echo '<input name="login"></div>';
+        echo '<label>'.t("password").'</label>';
         echo '<input type="password" name="password">';
-        echo '</p>';
-        echo '<p>';
-        echo '<input type="submit" value="Login">';
-        echo '</p>';
+        echo '<input type="submit" value="'.t("login").'">';
         echo '</form>';
-        echo '</body>';
+        echo '</main>';
     }
 
     public function renderSignUp() {

@@ -88,6 +88,8 @@ html, body{
     color: white;
 }
 
+
+
 .formFooter {
     /**
      * Lay out the children of this container with
@@ -125,7 +127,6 @@ main{
     padding-bottom: 2em;
 }
 main p{
-
     line-height: 1;
     color: #172e36;
     padding-top: 1em;
@@ -133,9 +134,20 @@ main p{
 }
 main h1{
     line-height:1;
+    width: 100%;
     text-align: center;
     font-size: 2em;
 }
+
+
+main form{
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+    flex-direction: column;
+}
+
+
 main h2{
     line-height:1;
     text-align: center;

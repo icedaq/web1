@@ -19,7 +19,7 @@ function t($key) {
         'houseNr' => array(
         'de'=>'Hausnummer',
         'en'=>'House number' ),
-
+        
         'catalog' => array(
         'de'=>'Katalog',
         'en'=>'Catalog' ),
@@ -31,6 +31,18 @@ function t($key) {
         'price' => array(
         'de'=>'Preis',
         'en'=>'Price' ),
+        
+        'login' => array(
+        'de'=>'Anmelden',
+        'en'=>'Login' ),
+
+        'username' => array(
+        'de'=>'Benutzername',
+        'en'=>'Username' ),
+
+        'password' => array(
+        'de'=>'Passwort',
+        'en'=>'Password' ),
         
         'description' => array(
         'de'=>'Beschreibung',
