@@ -67,6 +67,11 @@ html, body{
     color: white;
 }
 
+/* This is for the username */
+.siteHeaderLogo span{
+    font-size: 12px;
+}
+
 .siteHeaderButton {
     cursor: pointer;
     color: #D9E9EF;
@@ -76,6 +81,11 @@ html, body{
 .siteHeaderButton a, .siteHeaderLogo a{
     text-decoration: none;
     color: #D9E9EF;
+}
+
+.siteHeaderLogo a{
+    text-decoration: none;
+    color: white;
 }
 
 .formFooter {

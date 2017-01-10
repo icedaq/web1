@@ -37,6 +37,9 @@ class MainView {
             case "cart":
                 $selected[2] = $selectedHtml;
                 break;
+            case "user":
+                $selected[3] = $selectedHtml;
+                break;
         }
         
         echo       '<div class="siteHeader">
@@ -61,8 +64,8 @@ class MainView {
                             <div class="siteHeader__item siteHeaderLogo '.$selected[2].'">
                                 <a href="/cart/show"><i class="fa fa-shopping-cart"></i></a>
                             </div>
-                            <div class="siteHeader__item siteHeaderLogo">
-                                <i class="fa fa-user"></i>
+                            <div class="siteHeader__item siteHeaderLogo '.$selected[3].'">
+                                <a href="/users/login"><i class="fa fa-user"></i> <span>Login</span></a>
                             </div>
                         </div>
                     </div>'; 

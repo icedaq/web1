@@ -5,6 +5,10 @@ require_once("helpers/translator.php");
 class UsersView {
 
     public function renderLogin() {
+        MainView::renderMeta("Login"); // Param is title of the page.
+        MainView::renderNavigation("cart");
+        $this->renderContent();         
+        MainView::renderFooter(); 
         echo '<!DOCTYPE html>';
         echo '<body>';
         echo  '<h3>Please Login</h3>';
