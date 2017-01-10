@@ -38,9 +38,14 @@ class usersController {
                 $this->view->renderLoginFail();
             }
         } else {
-            $this->view->renderLogin();
+            if (!isset($_SESSION["user"])) {
+                $this->view->renderLogin();
+            } else {
+                $this->view->renderLoginSuccess($_SESSION["user"]);
+            }
         }
     }
+
     public function logout() {
         $_SESSION = [];
         setcookie(session_name(),'',1);

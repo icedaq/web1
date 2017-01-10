@@ -15,10 +15,34 @@ function t($key) {
         'page' => array(
         'de'=>'Seite',
         'en'=>'Page' ),
+
+        'firstName' => array(
+        'de'=>'Vorname',
+        'en'=>'First name' ),
         
+        'lastName' => array(
+        'de'=>'Nachname',
+        'en'=>'Last name' ),
+        
+        'street' => array(
+        'de'=>'Strasse',
+        'en'=>'Street' ),
+
         'houseNr' => array(
         'de'=>'Hausnummer',
         'en'=>'House number' ),
+        
+        'city' => array(
+        'de'=>'Stadt',
+        'en'=>'City' ),
+        
+        'zip' => array(
+        'de'=>'Postleitzahl',
+        'en'=>'Zip code' ),
+        
+        'country' => array(
+        'de'=>'Land',
+        'en'=>'Country' ),
         
         'catalog' => array(
         'de'=>'Katalog',
@@ -35,6 +59,18 @@ function t($key) {
         'login' => array(
         'de'=>'Anmelden',
         'en'=>'Login' ),
+        
+        'registerLink' => array(
+        'de'=>'jetzt registrieren!',
+        'en'=>'register now!' ),
+        
+        'register' => array(
+        'de'=>'Registrieren',
+        'en'=>'Register' ),
+        
+        'logout' => array(
+        'de'=>'Abmelden',
+        'en'=>'Logout' ),
 
         'username' => array(
         'de'=>'Benutzername',
