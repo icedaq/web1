@@ -31,4 +31,10 @@ class ShoppingCartItem {
         return $prod->getPrice() * $this->itemAmount;
     }
 
+    public function getName() {
+        $catalog = new Catalog(); 
+        $prod = $catalog->getProductByID($this->itemID);
+        return $prod->getName();
+    }
+
 }

@@ -14,7 +14,7 @@ class cartController {
 
     public function __construct() {
         $this->model = new ShoppingCart();
-        $this->view = new CartView();
+        $this->view = new CartView($this->model);
     }
 
     public function setId($id) {
@@ -35,6 +35,10 @@ class cartController {
         if (isset($this->params['prodId']) && isset($this->params['quantity'])) {
             $this->model->addProduct($this->params['prodId'], $this->params['quantity']);
         }
+    }
+
+    public function show() {
+        $this->view->renderCart();
     }
     
 }
