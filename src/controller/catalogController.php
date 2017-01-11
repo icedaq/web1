@@ -1,7 +1,6 @@
 <?php
 require_once("model/Catalog.php");
 require_once("view/CatalogView.php");
-
 session_start();
 
 // This class is used to manage the products.

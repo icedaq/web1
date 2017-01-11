@@ -47,6 +47,25 @@ class Catalog {
 		}
     }
 
+	public function getCategories() {
+
+      $categories = array();
+
+      $db = Database::getInstance(); 
+	  $con = $db->getConnection();
+      
+      $query = "SELECT id, name FROM Categories;";
+  
+      if ($result = $con->query($query)) {
+        	 while ($cat = $result->fetch_assoc()) {
+			  	array_push($categories, ["id"=>$cat['id'], "name"=>$cat["name"]]);
+          	}
+          	$result->close();
+      }
+        
+      return $categories;
+    }
+
     public function filterProductsByName($term) {
 
         $result = array();

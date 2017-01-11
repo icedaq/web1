@@ -30,6 +30,17 @@ function clearCart() {
     $.get("/cart/clear");
 }
 
+function filterProducts() {
+    var category = $("#categorySelect").val();
+    $(".item-wrapper").hide();
+    if (category == 0)
+    {
+        $(".item-wrapper").show();
+    } else {
+        $(".item-wrapper[category="+category+"]").show();
+    }
+}
+
 // A $( document ).ready() block.
 $( document ).ready(function() {
 

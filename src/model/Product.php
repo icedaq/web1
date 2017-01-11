@@ -76,7 +76,12 @@ class Product {
         
       return $cat['Name'];
     }
-    
+
+
+	public function getCategory() {
+      return $this->category;
+    }
+
     public function getImage() {
 		return $this->image;
     }

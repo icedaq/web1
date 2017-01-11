@@ -162,6 +162,12 @@ main h2{
     width: 100%;
 }
 
+#catSelect {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
 .item-wrapper {
     padding: 30px;
 }

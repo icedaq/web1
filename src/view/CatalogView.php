@@ -29,12 +29,12 @@ class CatalogView {
 
         // Head
         echo '<main>
-        <h1>Katalog Übersicht</h1><br/>
-        <p>Auf dieser Seite sehen sie eine Übersicht aller Bildkategorien, welche unsere Webseite führt. Wenn Sie auf das Plus Symbol klicken erhalten sie eine Detailansicht des gewählten Bildes und sie können es ihrem Warenkorb hinzufügen.</p><br/>';
+        <h1>Katalog</h1>
+        <div id="catSelect">Select category: '.$this->renderCategorySelect().'</div>';
 
        $products = $this->model->getProducts();
         foreach ($products as $p) {
-            echo '<div class="item-wrapper ">';
+            echo '<div class="item-wrapper" category="'.$p->getCategory().'">';
             echo '<div class="item relative">';
             echo '<div class="item-header text-center">';
             echo $p->getName();
@@ -48,8 +48,18 @@ class CatalogView {
             echo '</div>';
             echo '</div>';
         }
-
         echo '</main>';
+    }
+
+    private function renderCategorySelect() {
+        $output = '<select id="categorySelect" onchange="filterProducts()" name="category">';
+        $output = $output.'<option value="0">All</option>';
+        foreach ($this->model->getCategories() as $c) {
+            $output = $output.'<option value="'.$c["id"].'">'.$c["name"].'</option>';
+        }
+        $output = $output.'</select>';
+        
+        return $output; 
     }
 
     // Show details of one product.
