@@ -16,7 +16,7 @@ class MainView
                         <meta charset="UTF-8">
                         <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
                         <title>ApertureLab - ' . $title . '</title>
-                        <link rel="icon" href="../favicon.ico" type="image/x-icon">
+                        <link rel="icon" href="favicon.ico" type="image/x-icon">
                         <link rel="stylesheet" href="/css/reset.css">
                         <link rel="stylesheet" href="/css/style.css">
                         <link rel="stylesheet" href="/css/font-awesome.min.css">
@@ -60,7 +60,6 @@ class MainView
                                 <img src="/images/aperture_logo.gif" alt="Logo" style="height:20px;" >
                             </a>
                             </div>
-                              <div class="siteHeader__item siteHeaderButton">Action</div>
                                     <div class="siteHeader__item siteHeaderButton ' . $selected[1] . ' "><a href="/catalog/show">' . t("catalog") . '</a></div>
                       <div class="siteHeader__item siteHeaderButton"><label>Search</label> <input id="searchField" type="text">
                                 </input></div>
