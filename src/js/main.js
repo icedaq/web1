@@ -62,7 +62,12 @@ $( document ).ready(function() {
           }
         });
       },
-      minLength: 2}); 
+      minLength: 2,
+      select: function(event, ui) {
+          event.preventDefault();
+          $("#searchField").val(ui.item.label);         
+          location.href = "/catalog/show/"+ui.item.value;
+      }}); 
 });
 
 function setupValidation() {
