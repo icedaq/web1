@@ -99,7 +99,8 @@ b {
 footer.mainFooter {
     align-items: center;
     border-top: 1px solid #D7DBDD;
-    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     background-color: #415F69;
     color: #ffffff;
     width: 100%;
