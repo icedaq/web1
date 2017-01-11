@@ -64,6 +64,26 @@ function filterProducts() {
     }
 }
 
+function confirmOrder() {
+    $( "#dialog-confirm" ).dialog({
+      resizable: false,
+      height: "auto",
+      width: 400,
+      modal: true,
+      buttons: {
+        "Order!": function() {
+          $( this ).dialog( "close" );
+          $("#checkout2").submit();
+        },
+        Cancel: function() {
+          $( this ).dialog( "close" );
+          location.href = "/";
+        }
+      }
+    });
+    return false;
+}
+
 // A $( document ).ready() block.
 $( document ).ready(function() {
 

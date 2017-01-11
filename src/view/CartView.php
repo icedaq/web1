@@ -58,7 +58,6 @@ class CartView {
         }
 
         // Total
-        // TODO: Colspan here.
         echo '<tr>
                 <td></td>
                 <td></td>
@@ -73,7 +72,7 @@ class CartView {
                 </div>
                 <br><br>
                 <button onclick="clearCart() "type="button">Warenkorb leeren</button>
-                <a href="/checkout/step/1"><button type="button">Bestellen</button></a>
+                <a href="/checkout/step/1"><button type="button">Warenkorb Bestellen</button></a>
                 <br><br>
                 </main>';
     }

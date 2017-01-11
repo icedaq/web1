@@ -145,8 +145,16 @@ main form {
     flex-direction: column;
 }
 
+main form#checkout1 .line {
+    flex-direction: row;
+}
+
 main form label{
     margin-top: 0.5em;
+}
+
+#dialog-confirm {
+    display: none;
 }
 
 main .registerButton{

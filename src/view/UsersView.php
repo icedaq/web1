@@ -75,7 +75,7 @@ class UsersView {
     private function renderSignUpContent() {
     
         echo '<main>';
-        echo  '<h1>'.t("register").'</h3>';
+        echo  '<h1>'.t("register").'</h1>';
         echo '<form id="register" action="/users/signup" method="post">';
         echo '<label>'.t("username").'</label>';
         echo '<input name="login" required>';

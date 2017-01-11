@@ -116,6 +116,54 @@ function t($key) {
         'options' => array(
         'de'=>'Optionen',
         'en'=>'Options' ),
+        
+        'checkoutTitle1' => array(
+        'de'=>'Checkout Schritt 1',
+        'en'=>'Checkout step 1' ),
+        
+        'checkoutTitle2' => array(
+        'de'=>'Checkout Schritt 2',
+        'en'=>'Checkout step 2' ),
+        
+        'checkoutTitle3' => array(
+        'de'=>'Bestellbestätigung',
+        'en'=>'Order confirmation' ),
+        
+        'shippingAddress' => array(
+        'de'=>'Versandadresse',
+        'en'=>'Shipping address' ),
+        
+        'deliveryMethod' => array(
+        'de'=>'Versandart',
+        'en'=>'Delivery method' ),
+        
+        'paymentMethod' => array(
+        'de'=>'Bezahlmethode',
+        'en'=>'Payment method' ),
+        
+        'prepaid' => array(
+        'de'=>'Vorauskasse',
+        'en'=>'Prepaid' ),
+        
+        'invoice' => array(
+        'de'=>'Rechnung',
+        'en'=>'Invoice' ),
+        
+        'giftbox' => array(
+        'de'=>'Geschenkbox',
+        'en'=>'Gift box' ),
+        
+        'next' => array(
+        'de'=>'Weiter',
+        'en'=>'Next' ),
+        
+        'comment' => array(
+        'de'=>'Kommentar',
+        'en'=>'Comment' ),
+        
+        'placeOrder' => array(
+        'de'=>'Bestellen!',
+        'en'=>'Order!' ),
 
         'content' => array(
         'de'=>'Willkommen auf der Seite ',

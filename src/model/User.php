@@ -19,6 +19,7 @@ class User {
     
 	}
 
+    // TODO: Add country
     public static function Create($login, $password, $firstName, $lastName, $street, $houseNumber, $city, $zip, $isAdmin) {
     
         $user = new User(); 
@@ -48,6 +49,26 @@ class User {
 
 	public function getFirstName() {
 		return $this->firstName;
+    }
+
+	public function getLastName() {
+		return $this->lastName;
+    }
+    
+    public function getStreet() {
+		return $this->street;
+    }
+    
+    public function getHouseNumber() {
+		return $this->houseNumber;
+    }
+
+    public function getCity() {
+		return $this->city;
+    }
+    
+    public function getZip() {
+		return $this->zip;
     }
 
     // Save this object to the database.
