@@ -93,9 +93,7 @@ class ShoppingCart {
 	}
 
     public function getJsonCart() {
-
         $cart = array();
-
         foreach ($this->cart as $v) {
             array_push($cart, ["id"=>$v->getId(), "quantity"=>$v->getAmount(), "price"=>$v->getPrice()]);
         }

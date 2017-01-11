@@ -39,7 +39,7 @@ class CartView {
         foreach ($cart as $i) {
             if ($i->getAmount() > 0 )
             { 
-                echo '<tr id="'.$i->getId().'">';
+                echo '<tr class="cartitem" id="'.$i->getId().'">';
                 echo '<td>'.$i->getName().'</td>';
                 echo '<td class="amount">'.$i->getAmount().'</td>';
                 echo '<td><div class="item_list">';

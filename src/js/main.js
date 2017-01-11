@@ -17,27 +17,39 @@ function increaseCartItem(id) {
     updateCart();
 }
 
-function removeCartItem(id) {
-    $.get("/cart/remove?prodId="+ id);
-    updateCart();
-}
-
 function decreaseCartItem(id) {
     $.get("/cart/decrease?prodId="+id);
     updateCart();
 }
 
-function clearCart() {
-    $.get("/cart/clear");
+function removeCartItem(id) {
+    $.get("/cart/remove?prodId="+ id);
     updateCart();
 }
 
-// TODO: Works up till here. Continue here!
+function clearCart() {
+    $.get("/cart/clear");
+    $("table .cartitem").hide();
+    updateCart();
+}
+
 function updateCart() {
+    var totalPrice = 0;
     $.getJSON("/cart/json", function(data){
         $.each(data, function(key, val) {
-            console.log(key + " : "+ val.id);
+            if (val.quantity == 0 ) {
+                $("#"+val.id).hide();
+            } else {
+                // Set amount
+                $("#"+val.id).find(".amount").html(val.quantity);
+
+                // Set price
+                $("#"+val.id).find(".price").html(val.price);
+            }
+            // Calculate total price
+            totalPrice += val.price;
         });
+        $("#cartPrice").html(totalPrice);
     }) 
 }
 
