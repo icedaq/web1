@@ -11,23 +11,34 @@ function addToCart(id) {
     $.get("/cart/add?prodId="+id+"&quantity=1");
 }
 
+// These function are used in the cart!
 function increaseCartItem(id) {
     $.get("/cart/increase?prodId="+id);
-    // TODO: Increase the display!
+    updateCart();
 }
 
 function removeCartItem(id) {
     $.get("/cart/remove?prodId="+ id);
-    // TODO: Increase the display!
+    updateCart();
 }
 
 function decreaseCartItem(id) {
     $.get("/cart/decrease?prodId="+id);
-    // TODO: Increase the display!
+    updateCart();
 }
 
 function clearCart() {
     $.get("/cart/clear");
+    updateCart();
+}
+
+// TODO: Works up till here. Continue here!
+function updateCart() {
+    $.getJSON("/cart/json", function(data){
+        $.each(data, function(key, val) {
+            console.log(key + " : "+ val.id);
+        });
+    }) 
 }
 
 function filterProducts() {

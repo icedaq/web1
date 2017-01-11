@@ -92,6 +92,16 @@ class ShoppingCart {
 		return $this->cart;
 	}
 
+    public function getJsonCart() {
+
+        $cart = array();
+
+        foreach ($this->cart as $v) {
+            array_push($cart, ["id"=>$v->getId(), "quantity"=>$v->getAmount(), "price"=>$v->getPrice()]);
+        }
+		return $cart;
+	}
+
 	// Calculate the price of the whole cart.
 	public function cartPrice() {
 

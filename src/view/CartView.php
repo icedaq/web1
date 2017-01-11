@@ -39,9 +39,9 @@ class CartView {
         foreach ($cart as $i) {
             if ($i->getAmount() > 0 )
             { 
-                echo '<tr>';
+                echo '<tr id="'.$i->getId().'">';
                 echo '<td>'.$i->getName().'</td>';
-                echo '<td id="amount'.$i->getId().'">'.$i->getAmount().'</td>';
+                echo '<td class="amount">'.$i->getAmount().'</td>';
                 echo '<td><div class="item_list">';
                 echo '<a href="/catalog/show/'.$i->getId().'"><i class="fa fa-info"></i></a>';
                 echo '</div></td>';
@@ -52,19 +52,20 @@ class CartView {
                 echo '<td><div class="item_list">';
                 echo '<i onclick="removeCartItem('.$i->getId().')" class="fa fa-trash-o"></i></a>';
                 echo '</div></td>';
-                echo '<td id=price"'.$i->getId().'">'.$i->getPrice().'</td>';
+                echo '<td class="price">'.$i->getPrice().'</td>';
                 echo '</tr>';
             }
         }
 
         // Total
+        // TODO: Colspan here.
         echo '<tr>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
-                <td class="special"><b>'.$this->model->cartPrice().'</b></td>
+                <td id="cartPrice" class="special"><b>'.$this->model->cartPrice().'</b></td>
             </tr>';
         
         // The End.

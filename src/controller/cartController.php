@@ -58,6 +58,10 @@ class cartController {
         $this->view->renderCart();
     }
 
+    public function json() {
+        echo json_encode($this->model->getJsonCart());
+    }
+
     // Empty the cart!
     public function clear() {
         $this->model->clearCart();
