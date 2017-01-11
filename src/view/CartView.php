@@ -73,7 +73,7 @@ class CartView {
                 </div>
                 <br><br>
                 <button onclick="clearCart() "type="button">Warenkorb leeren</button>
-                <button type="button">Bestellung absenden</button>
+                <a href="/checkout/step/1"><button type="button">Bestellen</button></a>
                 <br><br>
                 </main>';
     }
