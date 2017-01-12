@@ -56,9 +56,17 @@ header {
     color: white;
 }
 
-.siteHeader__item {
-    padding: 5px 15px;
-    font-size: 12px;
+.siteHeader_item_left {
+    padding: 0.1em 0.3em;
+    margin-left: 0.3em;
+}
+.siteHeader_item_mid {
+    padding: 0.1em 0.3em;
+    margin-left: 0.3em;
+}
+.siteHeader_item_right {
+    padding: 0.1em 0.3em;
+    margin-left: 0.3em;
 }
 
 .siteHeaderButton a {
@@ -67,7 +75,7 @@ header {
 }
 
 .siteHeader__item {
-    margin-left: 5px;
+
 }
 
 .siteHeader__item.is-site-header-item-selected {
@@ -84,14 +92,13 @@ header {
 }
 
 .siteHeaderLogo {
-    font-size: 20px;
     line-height: 0;
     color: white;
 }
 
 /* This is for the username */
 .siteHeaderLogo span {
-    font-size: 12px;
+
 }
 
 .siteHeaderButton {
@@ -188,13 +195,6 @@ main .registerButton{
     margin-top: 1em;
     text-align: center;
     font-size: 0.8em;
-}
-
-main h2{
-    line-height:1;
-    text-align: center;
-    font-size: 1.5em;
-    width: 100%;
 }
 
 #catSelect {

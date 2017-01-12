@@ -58,44 +58,41 @@ class MainView
         }
 
         echo '<body>
-                   <header>
-                        <div class="siteHeader__section">
-                            <div class="siteHeader__item siteHeaderLogo">
-                                <a href="/"><img src="/images/aperture_logo.gif" alt="Logo" style="height:20px;" ></a>
-                            </div>
-                            <div class="siteHeader__item siteHeaderButton ' . $selected[1] . ' ">
-                                <a href="/catalog/show">' . t("catalog") . '</a>
-                            </div>
-                            <div class="siteHeader__item siteHeaderButton">
-                                <label>Search</label>
-                                <input id="searchField" type="text"></input>
-                                </div>
-                            <div class="siteHeader__item siteHeaderLogo">
-                                <i class="fa fa-search"></i>
-                            </div>
-                        </div>
-                        <div class="siteHeader__section" id="saleBanner">
-                            SALE: <a href="/catalog/show/'.$saleProduct->getId().'">'.$saleProduct->getName().'</a>
-                        </div>
-                        <div class="siteHeader__section">
-                            <div id="setLanDe" class="siteHeader__item siteHeaderButton">de</div>
-                            <div id="setLanEn" class="siteHeader__item siteHeaderButton">en</div>
-                            <div class="siteHeader__item siteHeaderLogo ' . $selected[2] . '">
-                                <a href="/cart/show"><i class="fa fa-shopping-cart"></i> <span id="menuCartCount">'.$cart->cartCount().'</span></a>
-                            </div>
-                            <div class="siteHeader__item siteHeaderLogo '.$selected[3].'">
-                                <a href="/users/login"><i class="fa fa-user"></i> <span>'.$username.'</span></a>
-                            </div>
-                        </div>
-                    </header>';
+              <header>
+                  <div class="siteHeader__section">
+                      <div class="siteHeader_item_left siteHeaderLogo">
+                          <a href="/"><img src="/images/aperture_logo.gif" alt="Logo" style="height:20px;" ></a>
+                      </div>
+                      <div class="siteHeader_item_left siteHeaderButton ' . $selected[1] . ' ">
+                          <a href="/catalog/show">' . t("catalog") . '</a>
+                      </div>
+                      <div class="siteHeader_item_left siteHeaderButton">
+                          <label>Search</label>
+                          <input id="searchField" type="text"></input><i class="fa fa-search"></i>
+                      </div>
+                  </div>
+                  <div class="siteHeader__section" id="saleBanner">
+                      <div class="siteHeader_item_mid">SALE: <a href="/catalog/show/'.$saleProduct->getId().'">'.$saleProduct->getName().'</a></div>
+                  </div>
+                  <div class="siteHeader__section">
+                      <div id="setLanDe" class="siteHeader_item_right siteHeaderButton">de</div>
+                      <div id="setLanEn" class="siteHeader_item_right siteHeaderButton">en</div>
+                      <div class="siteHeader_item_right siteHeaderLogo ' . $selected[2] . '">
+                          <a href="/cart/show"><i class="fa fa-shopping-cart"></i> <span id="menuCartCount">'.$cart->cartCount().'</span></a>
+                      </div>
+                      <div class="siteHeader_item_right siteHeaderLogo '.$selected[3].'">
+                          <a href="/users/login"><i class="fa fa-user"></i> <span>'.$username.'</span></a>
+                      </div>
+                  </div>
+              </header>';
     }
 
     public static function renderFooter()
     {
         echo '<footer class="mainFooter">
-                    <p>&copy; 2017 by ApertureLab, 10 Downing Street, London SW1A 2AA, UK</p>
-                </footer>
-                </body>
-                </html>';
+                 <p>&copy; 2017 by ApertureLab, 10 Downing Street, London SW1A 2AA, UK</p>
+              </footer>
+              </body>
+              </html>';
     }
 }
