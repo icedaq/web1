@@ -11,7 +11,7 @@ class CatalogView {
     }
     
     public function renderCatalog() {
-        MainView::renderMeta("Catalog"); // Param is title of the page.
+        MainView::renderMeta(t("catalog")); // Param is title of the page.
         MainView::renderNavigation("catalog");
         $this->renderCatalogContent();         
         MainView::renderFooter(); 
@@ -28,7 +28,7 @@ class CatalogView {
 
         // Head
         echo '<main>
-        <h1>Katalog</h1>
+        <h1>' . t("catalog") . '</h1>
         <div id="catSelect">Select category: '.$this->renderCategorySelect().'</div>';
 
        $products = $this->model->getProducts();
