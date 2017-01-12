@@ -3,6 +3,8 @@ html, body {
     padding: 0;
     font-family: Arial, SansSerif;
     background-color: #D9E9EF;
+    height: 100%;
+    width: 100%;
 }
 
 b {
@@ -24,18 +26,9 @@ span.sale {
     color: red;
 }
 
-.siteHeader {
-    /**
-     * Lay out the children of this container with
-     * flexbox, which is horizontal by default.
-     */
-    display: flex;
+header {
 
-    /**
-     * Make the container put as much space as possible
-     * between its children, with the children at either
-     * end laying flush against the container's edges.
-     */
+    display: flex;
     justify-content: space-between;
 
     padding: 10px;
@@ -63,9 +56,16 @@ span.sale {
     color: white;
 }
 
-.siteHeader__item {
-    padding: 5px 15px;
-    font-size: 12px;
+.siteHeader_item_left {
+    padding: 0.1em 0.3em;
+    margin-right: 0.3em;
+}
+.siteHeader_item_mid {
+    padding: 0.1em 0.3em;
+}
+.siteHeader_item_right {
+    padding: 0.1em 0.3em;
+    margin-left: 0.3em;
 }
 
 .siteHeaderButton a {
@@ -74,7 +74,7 @@ span.sale {
 }
 
 .siteHeader__item {
-    margin-left: 5px;
+
 }
 
 .siteHeader__item.is-site-header-item-selected {
@@ -91,14 +91,13 @@ span.sale {
 }
 
 .siteHeaderLogo {
-    font-size: 20px;
     line-height: 0;
     color: white;
 }
 
 /* This is for the username */
 .siteHeaderLogo span {
-    font-size: 12px;
+
 }
 
 .siteHeaderButton {
@@ -195,13 +194,6 @@ main .registerButton{
     margin-top: 1em;
     text-align: center;
     font-size: 0.8em;
-}
-
-main h2{
-    line-height:1;
-    text-align: center;
-    font-size: 1.5em;
-    width: 100%;
 }
 
 #catSelect {
