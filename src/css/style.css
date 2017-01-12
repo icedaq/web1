@@ -66,7 +66,6 @@ header {
 
 .siteHeaderButton a {
     text-decoration: none;
-    color: #D9E9EF;
 }
 
 
@@ -84,7 +83,6 @@ header {
 
 .siteHeaderLogo {
     line-height: 0;
-    color: #D9E9EF;
 }
 
 /* This is for the username */
@@ -94,7 +92,6 @@ header {
 
 .siteHeaderButton {
     cursor: pointer;
-    color: #D9E9EF;
 }
 
 /* Do not give links in the nav weird colors. */
@@ -105,7 +102,6 @@ header {
 
 .siteHeaderLogo a {
     text-decoration: none;
-    color: white;
 }
 
 footer.mainFooter {
