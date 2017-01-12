@@ -124,6 +124,10 @@ main {
     padding-bottom: 2em;
 }
 
+main img {
+    margin-top: 20px;
+}
+
 main p {
     line-height: 1;
     color: #172e36;

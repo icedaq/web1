@@ -15,9 +15,8 @@ class HomeView {
 
     private function renderContent() {
     echo '<main>
-            <h1>Home</h1>
-                <br/><br/>
-                <p>Welcome to the Webpage! Wir hoffen dass sie alles was sie suchen finden und wir ihnen zum perfekten Bild verhelfen können! Geniessen sie die gelungenen Werke!</p>
+            <h1>'.t("welcomeTo").'</h1>
+            <img src="/images/aperture_logo.gif" alt="Logo" style="height:100px;">
           </main>';
     }
 

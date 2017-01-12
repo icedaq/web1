@@ -129,6 +129,10 @@ function t($key) {
         'de'=>'Bestellbestätigung',
         'en'=>'Order confirmation' ),
         
+        'welcomeTo' => array(
+        'de'=>'Willkommen bei',
+        'en'=>'Welcome to' ),
+        
         'shippingAddress' => array(
         'de'=>'Versandadresse',
         'en'=>'Shipping address' ),
