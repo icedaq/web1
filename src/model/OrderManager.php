@@ -1,20 +1,25 @@
 <?php
-
-require_once("Product.php");
+require_once("Order.php");
 require_once("Database.php");
+require_once("User.php");
+require_once("ShoppingCart.php");
+session_start();
 
 // This class is used to manage the orders.
 class OrderManager {
 
-    private $products = array(); 
+    private $orders = array(); 
 
     public function __construct() {
-		$this->load();
+		//$this->load();
     }
 
-    public function addProduct($name, $price, $description, $category, $image) {
-		$p = Product::Create($name, $price, $description, $category, $image);
-		array_push($this->products, $p);
+    public function addOrder() {
+        $cart = ShoppingCart::load();
+        $user = $_SESSION['user'];
+        $o = new Order($cart, $user);
+        array_push($orders, $o);
+        $_SESSION['order'] = serialize($o);
     }
 
     // Load all the products from the database.
@@ -35,57 +40,27 @@ class OrderManager {
       }
 	}
 
-	public function getProducts() {
+	public function getOrders() {
         return $this->products;
     }
 
-	public function getProductByID($id) {
-		foreach ($this->products as $value) {
+    public function getCurrentOrder() {
+        if (isset($_SESSION['order'])) {
+            return unserialize($_SESSION['order']);
+        }
+    }
+
+	public function getOrderByID($id) {
+		foreach ($this->orders as $value) {
 			if($value->getId() == $id) {
 				return $value;
 			}
 		}
     }
 
-	public function getCategories() {
-
-      $categories = array();
-
-      $db = Database::getInstance(); 
-	  $con = $db->getConnection();
-      
-      $query = "SELECT id, name FROM Categories;";
-  
-      if ($result = $con->query($query)) {
-        	 while ($cat = $result->fetch_assoc()) {
-			  	array_push($categories, ["id"=>$cat['id'], "name"=>$cat["name"]]);
-          	}
-          	$result->close();
-      }
-        
-      return $categories;
-    }
-
-    public function filterProductsByName($term) {
-
-        $result = array();
-
-        foreach ($this->products as $value) {
-            $littleHaystack = strtolower($value->getName());
-            $littleNeedle = strtolower($term);
-            if(strpos($littleHaystack, $littleNeedle) !== false) {
-                array_push($result, $value);
-			}
-        }
-
-        return $result;
-	}
-
-    // Product: 20 Products. Options. Categories.
-    // Create a default set of products.
     public function seed() {
 
-      $db = Database::getInstance(); 
+    /*  $db = Database::getInstance(); 
       $con = $db->getConnection();
 
       // Create the table for the categories.
@@ -95,6 +70,6 @@ class OrderManager {
       // Now add some data. We add the categories and options by hand.
       $query =  "INSERT INTO Categories (id, name) VALUES (NULL, 'Animals'), (NULL, 'Persons'), (NULL, 'Landscape'), (NULL, 'Abstract'), (NULL, 'Objects'), (NULL, 'Other');";
       $con->query($query);
-
+    */
     }
 }
