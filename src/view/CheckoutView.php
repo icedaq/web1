@@ -1,8 +1,8 @@
 <?php
 require_once("helpers/translator.php");
 require_once("MainView.php");
+require_once("model/Order.php");
 require_once("model/User.php");
-session_start();
 
 class CheckoutView {
     private $model;
@@ -37,11 +37,11 @@ class CheckoutView {
         echo '<h1>'.t("checkoutTitle1").'</h1>';
         echo '<form id="checkout1" action="/checkout/step/2" method="post">';
         echo '<label><b>'.t("deliveryMethod").'</b></label>';
-        echo '<div class="line"><input type="radio" name="deliveryMethod" value="normal">Normal';
-        echo '<input type="radio" name="deliveryMethod" value="express">Express</div>';
+        echo '<div class="line"><input type="radio" name="deliveryMethod" value="normal" required>Normal';
+        echo '<input type="radio" name="deliveryMethod" value="express" required>Express</div>';
         echo '<label><b>'.t("paymentMethod").'</b></label>';
         echo '<div class="line"><input type="radio" name="paymentMethod" value="prepaid">'.t("prepaid");
-        echo '<input type="radio" name="paymentMethod" value="invoice">'.t("invoice").'</div>';
+        echo '<input type="radio" name="paymentMethod" value="invoice" required>'.t("invoice").'</div>';
         echo '<label><b>'.t("options").'</b></label>';
         echo '<div class="line"><input type="checkbox" name="giftbox" value="giftbox">'.t("giftbox").'</div>';
         echo '<input type="submit" value="'.t("next").'">';
@@ -51,8 +51,7 @@ class CheckoutView {
 
     private function renderCheckoutStep2Content() {
 
-        // TODO: Ensure that someone is logged in.
-        $user = $_SESSION['user'];
+        $user = $this->model->getCurrentOrder()->getUser();
 
         echo '<main>';
         echo '<h1>'.t("checkoutTitle2").'</h1>';

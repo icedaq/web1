@@ -12,8 +12,7 @@ class UserManager {
         $this->load();
     }
 
-    // TODO: Add country.
-
+    // TODO: Add country, email
     public function addUser($login, $password, $firstName, $lastName, $street, $houseNumber, $city, $zip, $isAdmin) {
 		User::Create($login, $password, $firstName, $lastName, $street, $houseNumber, $city, $zip, $isAdmin);
     }
@@ -79,6 +78,15 @@ class UserManager {
             return false;
         }
     }
+
+    public static function isLoggedIn() {
+        if (isset($_SESSION["user"])) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+        
     // Create a default set of users.
     public function seed() {
 

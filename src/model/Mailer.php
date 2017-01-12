@@ -1,13 +1,11 @@
 <?php
 
-require_once("../libs/sendgrid-php/sendgrid-php.php");
+require_once("libs/sendgrid-php/sendgrid-php.php");
 
 // Simple class to send email notifications.
 class Mailer {
 
     public static function sendMail($clientAddress, $body) {
-
-
         $request_body = json_decode('{
           "personalizations": [
             {
