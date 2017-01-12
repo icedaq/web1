@@ -67,8 +67,7 @@ class MainView
                           <a href="/catalog/show">' . t("catalog") . '</a>
                       </div>
                       <div class="siteHeader_item_left siteHeaderButton">
-                          <label>Search</label>
-                          <input id="searchField" type="text"></input><i class="fa fa-search"></i>
+                          <i class="fa fa-search"></i> <input id="searchField" type="text"></input>
                       </div>
                   </div>
                   <div class="siteHeader__section" id="saleBanner">
