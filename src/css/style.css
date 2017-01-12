@@ -48,7 +48,7 @@ header {
 
 .siteHeader_item_left {
     padding: 0.1em 0.3em;
-    margin-right: 0.3em;
+    margin-right: 0.4em;
 }
 .siteHeader_item {
     padding: 0.1em 0.3em;
@@ -61,7 +61,7 @@ header {
 }
 .siteHeader_item_right {
     padding: 0.1em 0.3em;
-    margin-left: 0.3em;
+    margin-left: 0.4em;
 }
 
 .siteHeaderButton a {
@@ -84,6 +84,7 @@ header {
 
 .siteHeaderLogo {
     line-height: 0;
+    color: #D9E9EF;
 }
 
 /* This is for the username */
