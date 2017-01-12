@@ -11,9 +11,14 @@ class adminController {
     }
 
     public function editProduct($id) {
-        $this->view->renderEditProductAdmin();
+        $this->view->renderAdminEditProduct($id);
     }
+
     public function addProduct() {
-        $this->view->renderAddProductAdmin();
+        $this->view->renderAdminAddProduct();
+    }
+
+    public function sales() {
+        $this->view->renderAdminSales();
     }
 }

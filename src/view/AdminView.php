@@ -70,6 +70,10 @@ class AdminView
     }
 
     private function renderEditProductContent($id) {
+
+        $product = $this->model->getProductByID($id);
+
+
         echo '<main>
                 <h1>'.t("adminProduct").'</h1>
                 <h2>'.t("adminProductEdit").'</h2>
