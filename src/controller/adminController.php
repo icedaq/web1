@@ -12,9 +12,9 @@ class adminController {
         $this->view = new AdminView();
     }
 
-    public function show() {
-        if (UserManager::isAdmin())
-        {
+    public function show()
+    {
+        if (UserManager::isAdmin()) {
             $this->view->renderAdmin();
         } else {
             $this->view->renderAdminUnauthorized();
