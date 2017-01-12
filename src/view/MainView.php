@@ -61,21 +61,22 @@ class MainView
                    <header>
                         <div class="siteHeader__section">
                             <div class="siteHeader__item siteHeaderLogo">
-                            <a href="/">
-                                <img src="/images/aperture_logo.gif" alt="Logo" style="height:20px;" >
-                            </a>
+                                <a href="/"><img src="/images/aperture_logo.gif" alt="Logo" style="height:20px;" ></a>
                             </div>
-                                    <div class="siteHeader__item siteHeaderButton ' . $selected[1] . ' "><a href="/catalog/show">' . t("catalog") . '</a></div>
-                      <div class="siteHeader__item siteHeaderButton"><label>Search</label> <input id="searchField" type="text">
-                                </input></div>
+                            <div class="siteHeader__item siteHeaderButton ' . $selected[1] . ' ">
+                                <a href="/catalog/show">' . t("catalog") . '</a>
+                            </div>
+                            <div class="siteHeader__item siteHeaderButton">
+                                <label>Search</label>
+                                <input id="searchField" type="text"></input>
+                                </div>
                             <div class="siteHeader__item siteHeaderLogo">
                                 <i class="fa fa-search"></i>
                             </div>
                         </div>
-                        <div id="saleBanner" class="siteHeader__section">
-                        SALE: <a href="/catalog/show/'.$saleProduct->getId().'">'.$saleProduct->getName().'</a>
+                        <div class="siteHeader__section" id="saleBanner">
+                            SALE: <a href="/catalog/show/'.$saleProduct->getId().'">'.$saleProduct->getName().'</a>
                         </div>
-                        <!-- This section gets pushed to the right side-->
                         <div class="siteHeader__section">
                             <div id="setLanDe" class="siteHeader__item siteHeaderButton">de</div>
                             <div id="setLanEn" class="siteHeader__item siteHeaderButton">en</div>
