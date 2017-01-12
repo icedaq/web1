@@ -1,8 +1,8 @@
 <?php
+require_once("model/ShoppingCart.php");
 require_once("helpers/translator.php");
 require_once("model/User.php");
 require_once("model/Catalog.php");
-require_once("model/ShoppingCart.php");
 session_start();
 
 // This class contains commonly used html stuff.
@@ -36,6 +36,7 @@ class MainView
     public static function renderNavigation($current)
     {
 
+       // $cart = new ShoppingCart();
         $cart = ShoppingCart::load();
         $catalog = new Catalog();
         $saleProduct = $catalog->getProductOnSale();
@@ -58,7 +59,6 @@ class MainView
                 $selected[3] = $selectedHtml;
                 break;
         }
-
 
         echo '<div class="siteHeader">
                         <div class="siteHeader__section">
