@@ -59,23 +59,22 @@ class MainView
 
         echo '<body>
               <header>
-                  <div class="siteHeader__section">
+                  <div class="siteHeader_section">
                       <div class="siteHeader_item_left siteHeaderLogo">
                           <a href="/"><img src="/images/aperture_logo.gif" alt="Logo" style="height:20px;" ></a>
                       </div>
                       <div class="siteHeader_item_left siteHeaderButton ' . $selected[1] . ' ">
                           <a href="/catalog/show">' . t("catalog") . '</a>
                       </div>
-                      <div class="siteHeader_item_left siteHeaderButton">
-                          <i class="fa fa-search"></i> <input id="searchField" type="text"></input>
+                      <div class="siteHeader_item">
+                          <input id="searchField" type="text"></input> <i class="fa fa-search"></i>
                       </div>
                   </div>
-                  <div class="siteHeader__section" id="saleBanner">
-                      <div class="siteHeader_item_mid">SALE: <a href="/catalog/show/'.$saleProduct->getId().'">'.$saleProduct->getName().'</a></div>
+                  <div class="siteHeader_section" id="saleBanner">
+                      <div class="siteHeader_item">SALE: <a href="/catalog/show/'.$saleProduct->getId().'">'.$saleProduct->getName().'</a></div>
                   </div>
-                  <div class="siteHeader__section">
-                      <div id="setLanDe" class="siteHeader_item_right siteHeaderButton">de</div>
-                      <div id="setLanEn" class="siteHeader_item_right siteHeaderButton">en</div>
+                  <div class="siteHeader_section">
+                      <div id="setLanDe" class="siteHeader_item_lang_left siteHeaderButton">de</div> / <div id="setLanEn" class="siteHeader_item_lang_right siteHeaderButton">en</div>
                       <div class="siteHeader_item_right siteHeaderLogo ' . $selected[2] . '">
                           <a href="/cart/show"><i class="fa fa-shopping-cart"></i> <span id="menuCartCount">'.$cart->cartCount().'</span></a>
                       </div>

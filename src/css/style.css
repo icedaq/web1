@@ -35,22 +35,14 @@ header {
     background-color: #56727C;
 }
 
-.siteHeader__section {
-    /**
-     * Lay out the children of this container with
-     * flexbox.
-     */
+.siteHeader_section {
+
     display: flex;
 
-    /**
-     * Align the children in the center, along
-     * the main axis. By default the children will
-     * align along their top edges.
-     */
-    align-items: center;
+    align-items: baseline;
 }
 
-.siteHeader__section#saleBanner {
+.siteHeader_section#saleBanner {
     font-weight: bold;
     text-decoration: underline;
     color: white;
@@ -60,8 +52,14 @@ header {
     padding: 0.1em 0.3em;
     margin-right: 0.3em;
 }
-.siteHeader_item_mid {
+.siteHeader_item {
     padding: 0.1em 0.3em;
+}
+.siteHeader_item_lang_left {
+    padding: 0.3em 0em 0.3em 0.1em;
+}
+.siteHeader_item_lang_rigth {
+    padding: 0.3em 0.1em 0.3em 0.0em;
 }
 .siteHeader_item_right {
     padding: 0.1em 0.3em;
@@ -73,11 +71,8 @@ header {
     color: #D9E9EF;
 }
 
-.siteHeader__item {
 
-}
-
-.siteHeader__item.is-site-header-item-selected {
+.is-site-header-item-selected {
     color: #FFFFFF;
     background-color: #415F69;
     border-radius: 4px;
