@@ -40,7 +40,7 @@ class CatalogView {
             echo $p->getName();
             echo '</div>';
             echo '<div class="item-body">';
-            echo '<img src="'.$p->getImage().'" alt="Firmen Logo">';
+            echo '<img src="/helpers/images.php?size=thumb&path='.urlencode($p->getImage()).'" alt="'.$p->getName().'">';
             echo '</div></a>';
             echo '<div class="add-icon" onclick="increaseCartItem('.$p->getId().')">';
             echo '<i class="fa fa-plus"></i>';
@@ -71,10 +71,8 @@ class CatalogView {
         // Head
         echo '<main>
                 <h1>'.$product->getName().'</h1>';
-
-        echo '<div class="item-body">
-                <img src="'.$product->getImage().'" alt="'.$product->getName().'" style="width:400px;" >
-             </div>
+        echo '
+                <img src="/helpers/images.php?size=medium&path='.urlencode($product->getImage()).'" alt="'.$product->getName().'">
                 <div class="detail-image">
             <table class="detail-information-image" style="width:100%">
             <tr>
