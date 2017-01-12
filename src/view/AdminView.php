@@ -1,5 +1,4 @@
 <?php
-
 require_once("helpers/translator.php");
 require_once("MainView.php");
 
@@ -7,19 +6,30 @@ class AdminView
 {
 
     public function renderAdmin() {
-
         MainView::renderMeta("Admin"); // Param is title of the page.
         MainView::renderNavigation("Admin");
         $this->renderContent();
         MainView::renderFooter();
+    }
+    
+    public function renderAdminUnauthorized() {
+        MainView::renderMeta("Admin"); // Param is title of the page.
+        MainView::renderNavigation("Admin");
+        $this->renderUnauthorizedContent();
+        MainView::renderFooter();
+    }
+
+    private function renderUnauthorizedContent() {
+        echo '<main>';
+        echo '<h1>You are unauthorized to view this page!</h1>';
+        echo '</main>';
     }
 
     private function renderContent() {
         echo '<main>
                 <h1>Adminbereich</h1>
                 <h2>Produkte</h2>
-                <br/><br/>
-                <p style="width: 100%;">In dieser Ansicht können sie die weitere Produkte hinzufügen.</p>
+                    <p>In dieser Ansicht können sie die weitere Produkte hinzufügen.</p>
                 <form action="$save new Produkt" id="produkt" style="min-width: 20em;">
                     <label style="font-weight: bold;" form="person">Produkte-Erfassung</label>
                     <label form="description">Beschreibung</label>
