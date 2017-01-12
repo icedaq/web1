@@ -8,9 +8,10 @@ class ShoppingCart {
 	private $cart = array(); 
 
 	public static function load() {
-		if (!empty($_SESSION["shoppingcart"])) {
-			return unserialize($_SESSION["shoppingcart"]);
-		} else {
+        if (!empty($_SESSION["shoppingcart"])) {
+            $cart = unserialize($_SESSION["shoppingcart"]);
+            return $cart;;
+        } else {
 			$newCart = new ShoppingCart();
 			$_SESSION["shoppingcart"] = serialize($newCart); 
 			return $newCart;
@@ -20,7 +21,8 @@ class ShoppingCart {
     public function addProduct($productID, $quantity) {
         $item = new ShoppingCartItem($productID, $quantity);
 		array_push($this->cart, $item);
-	}
+        $this->save();
+    }
 
     // TODO: Consolidate this a little bit.
 	public function updateProduct($productID, $quantity) {
@@ -38,7 +40,8 @@ class ShoppingCart {
             $this->addProduct($productID, $quantity);
 
         }
-	}
+        $this->save();
+    }
 
 	public function increaseProduct($productID, $quantity) {
         $found = false;
@@ -55,6 +58,7 @@ class ShoppingCart {
             $this->addProduct($productID, $quantity);
 
         }
+        $this->save();
 	}
 
 	public function decreaseProduct($productID, $quantity) {
@@ -66,6 +70,7 @@ class ShoppingCart {
                 }
             }
         }
+        $this->save();
     }
 
 	public function removeProduct($productID) {
@@ -77,6 +82,7 @@ class ShoppingCart {
                 }
             }
         }
+        $this->save();
     }
 
 	public function productQuantity($productID) {
@@ -125,6 +131,11 @@ class ShoppingCart {
 
     public function clearCart() {
         $this->cart = array();
+        $this->save();
+    }
+
+    private function save() {
+		$_SESSION["shoppingcart"] = serialize($this); 
     }
 
 }
