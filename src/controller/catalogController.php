@@ -1,6 +1,8 @@
 <?php
+require_once("model/ShoppingCart.php");
 require_once("model/Catalog.php");
 require_once("view/CatalogView.php");
+require_once("model/UserManager.php");
 session_start();
 
 // This class is used to manage the products.
@@ -55,6 +57,20 @@ class catalogController {
             $id = $this->consumeId();
             $this->view->renderProduct($id);
         }
+    }
+
+    // Add a new product to the catalog.
+    //public function addProduct($name, $price, $description, $category, $image, $sale=FALSE) {
+    public function add() {
+        if (UserManager::isAdmin()) {
+            if(isset($_POST['name'])  
+                &&  isset($_POST['price'])
+                &&  isset($_POST['description'])
+                &&  isset($_POST['category'])
+                &&  isset($_POST['image'])
+                &&  isset($_POST['sale'])) {
+            }   
+        } 
     }
 
     public function seed() {
