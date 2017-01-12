@@ -60,7 +60,6 @@ class catalogController {
     }
 
     // Add a new product to the catalog.
-    //public function addProduct($name, $price, $description, $category, $image, $sale=FALSE) {
     public function add() {
         if (UserManager::isAdmin()) {
             if(isset($_POST['name'])  
@@ -69,6 +68,17 @@ class catalogController {
                 &&  isset($_POST['category'])
                 &&  isset($_POST['image'])
                 &&  isset($_POST['sale'])) {
+
+                $this->model->addProduct($_POST['name'],$_POST['price'],$_POST['description'], $_POST['category'], $_POST['image'], $_POST['sale']);
+            }   
+        } 
+    }
+
+    // Set the product as sale. 
+    public function sale() {
+        if (UserManager::isAdmin()) {
+            if(isset($_POST['productId']))  {
+                $this->model->setSale($_POST['productId']);
             }   
         } 
     }

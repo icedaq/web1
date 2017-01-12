@@ -163,6 +163,14 @@ main h1 {
     font-size: 2em;
 }
 
+main h2 {
+    line-height: 1;
+    width: 100%;
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 1em;
+}
+
 main form {
     display: flex;
     justify-content: center;

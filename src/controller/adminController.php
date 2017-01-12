@@ -19,4 +19,5 @@ class adminController {
         } else {
             $this->view->renderAdminUnauthorized();
         }
+    }
 }

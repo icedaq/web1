@@ -48,6 +48,11 @@ class Product {
 		return $this->sale;
     }
 
+    public function setSale($sale) {
+        $this->sale = $sale;
+        $this->save();
+    }
+
     // Return an array with the available option(names) for this product.
 	public function getOptions() {
 
@@ -109,8 +114,8 @@ class Product {
 
       $saleInt = (int)$this->sale;
 
-      $stmt = $con->prepare("INSERT INTO Products (id, price, name, description, category, image, sale) VALUES (NULL, ?, ?, ?, ?, ?, ?);");
-      $stmt->bind_param("dssisi", $this->price, $this->name, $this->description, $this->category, $this->image, $saleInt);
+      $stmt = $con->prepare("REPLACE INTO Products (id, price, name, description, category, image, sale) VALUES (?, ?, ?, ?, ?, ?, ?);");
+      $stmt->bind_param("idssisi", $this->id, $this->price, $this->name, $this->description, $this->category, $this->image, $saleInt);
 
 	  $stmt->execute();
 

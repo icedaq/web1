@@ -47,6 +47,25 @@ class Catalog {
 		}
     }
 
+	public function getOptions() {
+
+      $options = array();
+
+      $db = Database::getInstance(); 
+	  $con = $db->getConnection();
+      
+      $query = "SELECT Name FROM Options;";
+  
+      if ($result = $con->query($query)) {
+        	 while ($option = $result->fetch_assoc()) {
+			  	array_push($options, $option['Name']);
+          	}
+          	$result->close();
+      }
+        
+      return $options;
+    }
+
 	public function getCategories() {
 
       $categories = array();
@@ -71,6 +90,18 @@ class Catalog {
 			if($value->getSale()) {
 				return $value;
 			}
+		}
+    }
+
+	public function setSale($id) {
+		foreach ($this->products as &$value) {
+			if($value->getSale()) {
+				$value->setSale(false);
+            }
+            if($value->getId() == $id)
+            {
+                $value->setSale(true);
+            }
 		}
     }
 
