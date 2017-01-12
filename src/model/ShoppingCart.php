@@ -35,7 +35,7 @@ class ShoppingCart {
         }
         if (!$found)
         {
-            $this->addProduct($productID, $newQuantity);
+            $this->addProduct($productID, $quantity);
 
         }
 	}
@@ -52,7 +52,7 @@ class ShoppingCart {
         }
         if (!$found)
         {
-            $this->addProduct($productID, $newQuantity);
+            $this->addProduct($productID, $quantity);
 
         }
 	}
@@ -110,6 +110,17 @@ class ShoppingCart {
     
         return $price;
 
+    }
+
+	public function cartCount() {
+		$count = 0;
+        foreach ($this->cart as $value) {
+            if($value->getAmount() > 0) {
+                $count++;
+            }
+		}
+    
+        return $count;
     }
 
     public function clearCart() {

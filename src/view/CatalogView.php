@@ -35,15 +35,15 @@ class CatalogView {
        $products = $this->model->getProducts();
         foreach ($products as $p) {
             echo '<div class="item-wrapper" category="'.$p->getCategory().'">';
-            echo '<div class="item relative">';
+            echo '<a href="/catalog/show/'.$p->getId().'"><div class="item relative">';
             echo '<div class="item-header text-center">';
             echo $p->getName();
             echo '</div>';
             echo '<div class="item-body">';
-            echo '<img src="'.$p->getImage().'" alt="Firmen Logo" style="height:80px;" >';
-            echo '</div>';
-            echo '<div class="add-icon">';
-            echo '<a href="/catalog/show/'.$p->getId().'"><i class="fa fa-plus"></i></a>';
+            echo '<img src="'.$p->getImage().'" alt="Firmen Logo">';
+            echo '</div></a>';
+            echo '<div class="add-icon" onclick="increaseCartItem('.$p->getId().')">';
+            echo '<i class="fa fa-plus"></i>';
             echo '</div>';
             echo '</div>';
             echo '</div>';
@@ -96,7 +96,7 @@ class CatalogView {
         </table>
     </div>
 
-    <button id="addToCart" onclick="addToCart('.$product->getId().')" type="button">'.t("buy").'</button>
+    <button id="addToCart" onclick="increaseCartItem('.$product->getId().')" type="button">'.t("buy").'</button>
     </main>';
         
     }

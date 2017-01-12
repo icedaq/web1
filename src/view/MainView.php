@@ -1,6 +1,7 @@
 <?php
 require_once("helpers/translator.php");
 require_once("model/User.php");
+require_once("model/ShoppingCart.php");
 session_start();
 
 // This class contains commonly used html stuff.
@@ -33,6 +34,9 @@ class MainView
 
     public static function renderNavigation($current)
     {
+
+        $cart = ShoppingCart::load();
+
 
         $username = "Login";
         if (isset($_SESSION['user'])) {
@@ -72,7 +76,7 @@ class MainView
                             <div id="setLanDe" class="siteHeader__item siteHeaderButton">de</div>
                             <div id="setLanEn" class="siteHeader__item siteHeaderButton">en</div>
                             <div class="siteHeader__item siteHeaderLogo ' . $selected[2] . '">
-                                <a href="/cart/show"><i class="fa fa-shopping-cart"></i></a>
+                                <a href="/cart/show"><i class="fa fa-shopping-cart"></i> <span id="menuCartCount">'.$cart->cartCount().'</span></a>
                             </div>
                             <div class="siteHeader__item siteHeaderLogo '.$selected[3].'">
                                 <a href="/users/login"><i class="fa fa-user"></i> <span>'.$username.'</span></a>

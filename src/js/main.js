@@ -7,29 +7,29 @@ function setLanguage(language)
     location.reload();
 }
 
-function addToCart(id) {
-    $.get("/cart/add?prodId="+id+"&quantity=1");
-}
-
 // These function are used in the cart!
 function increaseCartItem(id) {
     $.get("/cart/increase?prodId="+id);
+    updateMenuCartCount();
     updateCart();
 }
 
 function decreaseCartItem(id) {
     $.get("/cart/decrease?prodId="+id);
+    updateMenuCartCount();
     updateCart();
 }
 
 function removeCartItem(id) {
     $.get("/cart/remove?prodId="+ id);
     updateCart();
+    updateMenuCartCount();
 }
 
 function clearCart() {
     $.get("/cart/clear");
     $("table .cartitem").hide();
+    updateMenuCartCount();
     updateCart();
 }
 
@@ -62,6 +62,18 @@ function filterProducts() {
     } else {
         $(".item-wrapper[category="+category+"]").show();
     }
+}
+
+function updateMenuCartCount() {
+    var count = 0;
+    $.getJSON("/cart/json", function(data){
+        $.each(data, function(key, val) {
+            if (val.quantity != 0 ) {
+                count = count + val.quantity;
+            }
+        });
+        $("#menuCartCount").html(count);
+    }) 
 }
 
 function confirmOrder() {
@@ -110,7 +122,9 @@ $( document ).ready(function() {
           event.preventDefault();
           $("#searchField").val(ui.item.label);         
           location.href = "/catalog/show/"+ui.item.value;
-      }}); 
+      }});
+
+//    updateMenuCartCount();
 });
 
 function setupValidation() {
