@@ -3,6 +3,8 @@ html, body {
     padding: 0;
     font-family: Arial, SansSerif;
     background-color: #D9E9EF;
+    height: 100%;
+    width: 100%;
 }
 
 b {
@@ -24,18 +26,9 @@ span.sale {
     color: red;
 }
 
-.siteHeader {
-    /**
-     * Lay out the children of this container with
-     * flexbox, which is horizontal by default.
-     */
-    display: flex;
+header {
 
-    /**
-     * Make the container put as much space as possible
-     * between its children, with the children at either
-     * end laying flush against the container's edges.
-     */
+    display: flex;
     justify-content: space-between;
 
     padding: 10px;

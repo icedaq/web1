@@ -58,7 +58,7 @@ class MainView
         }
 
         echo '<body>
-                   <div class="siteHeader">
+                   <header>
                         <div class="siteHeader__section">
                             <div class="siteHeader__item siteHeaderLogo">
                             <a href="/">
@@ -86,7 +86,7 @@ class MainView
                                 <a href="/users/login"><i class="fa fa-user"></i> <span>'.$username.'</span></a>
                             </div>
                         </div>
-                    </div>';
+                    </header>';
     }
 
     public static function renderFooter()
