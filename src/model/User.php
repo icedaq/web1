@@ -70,6 +70,10 @@ class User {
     public function getZip() {
 		return $this->zip;
     }
+    
+    public function isAdmin() {
+		return $this->isAdmin;
+    }
 
     // Save this object to the database.
     private function save() {
