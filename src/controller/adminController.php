@@ -1,5 +1,7 @@
 <?php
 require_once("view/AdminView.php");
+require_once("model/UserManager.php");
+session_start();
 
 // This class is used to manage the products.
 class adminController {
@@ -11,6 +13,11 @@ class adminController {
     }
 
     public function show() {
-        $this->view->renderAdmin();
+        if (UserManager::isAdmin())
+        {
+            $this->view->renderAdmin();
+        } else {
+            $this->view->renderAdminUnauthorized();
+        }
     }
 }
