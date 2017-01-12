@@ -1,6 +1,7 @@
 <?php
 require_once("User.php");
 require_once("Database.php");
+session_start();
 
 // This class is used to manage the products.
 class UserManager {
@@ -70,6 +71,14 @@ class UserManager {
       return password_verify($password, $pw);
     }
 
+    // Check if the currently logged in user is an admin.
+    public static function isAdmin() {
+        if (isset($_SESSION["user"]) && $_SESSION["user"]->isAdmin()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     // Create a default set of users.
     public function seed() {
 
