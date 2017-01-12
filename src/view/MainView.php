@@ -23,14 +23,11 @@ class MainView
                         <link rel="stylesheet" href="/css/style.css">
                         <link rel="stylesheet" href="/css/font-awesome.min.css">
                         <link rel="stylesheet" href="/css/jquery-ui.min.css">
-                        <script src="//code.jquery.com/jquery-3.1.1.min.js"
-                            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-                            crossorigin="anonymous"></script>
+                        <script src="//code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
                         <script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
                         <script src="//cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
                         <script src="/js/main.js"></script>            
-                        </head>
-                        <body>';
+                        </head>';
     }
 
     public static function renderNavigation($current)
@@ -60,7 +57,8 @@ class MainView
                 break;
         }
 
-        echo '<div class="siteHeader">
+        echo '<body>
+                   <div class="siteHeader">
                         <div class="siteHeader__section">
                             <div class="siteHeader__item siteHeaderLogo">
                             <a href="/">
