@@ -27,19 +27,17 @@ span.sale {
 }
 
 header {
-
     display: flex;
     justify-content: space-between;
 
     padding: 10px;
     background-color: #56727C;
+    color: #D9E9EF;
 }
 
 .siteHeader_section {
-
     display: flex;
-
-    align-items: baseline;
+    align-items: center;
 }
 
 .siteHeader_section#saleBanner {
@@ -73,7 +71,6 @@ header {
 
 
 .is-site-header-item-selected {
-    color: #FFFFFF;
     background-color: #415F69;
     border-radius: 4px;
 }
@@ -87,7 +84,6 @@ header {
 
 .siteHeaderLogo {
     line-height: 0;
-    color: white;
 }
 
 /* This is for the username */
