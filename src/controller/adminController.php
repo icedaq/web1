@@ -10,7 +10,10 @@ class adminController {
         $this->view = new AdminView();
     }
 
-    public function show() {
-        $this->view->renderAdmin();
+    public function editProduct($id) {
+        $this->view->renderEditProductAdmin();
+    }
+    public function addProduct() {
+        $this->view->renderAddProductAdmin();
     }
 }

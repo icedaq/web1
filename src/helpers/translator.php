@@ -169,6 +169,22 @@ function t($key) {
         'de'=>'Bestellen!',
         'en'=>'Order!' ),
 
+        'adminProduct' => array(
+            'de'=>'Administration - Produkt',
+            'en'=>'admin - product' ),
+
+        'adminProductEdit' => array(
+            'de'=>'Produkt bearbeiten',
+            'en'=>'edit product' ),
+
+        'adminProductAdd' => array(
+            'de'=>'Produkt hinzufügen',
+            'en'=>'add product' ),
+
+        'adminSale' => array(
+            'de'=>'Administration - Aktion',
+            'en'=>'admin - sale' ),
+
         'content' => array(
         'de'=>'Willkommen auf der Seite ',
         'en'=>'Welcome to the page '));
