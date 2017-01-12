@@ -10,13 +10,14 @@ class Product {
     private $description;
     private $category;
     private $image;
-    
+    private $sale;
+
     public function __construct() {
 
     
 	}
 
-    public static function Create($name, $price, $description, $category, $image) {
+    public static function Create($name, $price, $description, $category, $image, $sale=FALSE) {
 
         $prod = new Product();
         $prod->name = $name;
@@ -24,6 +25,7 @@ class Product {
         $prod->description = $description;
         $prod->category = $category;
         $prod->image = $image;
+        $prod->sale = $sale;
 
 		$prod->save();
 
@@ -40,6 +42,10 @@ class Product {
 
 	public function getDescription() {
 		return $this->description;
+    }
+    
+    public function getSale() {
+		return $this->sale;
     }
 
     // Return an array with the available option(names) for this product.
@@ -88,7 +94,12 @@ class Product {
 
 	public function getPrice() {
 		return $this->price;
-	}
+    }
+
+    // Sale is 10% off.
+    public function getSalePrice() {
+        return 0.9*$this->getPrice();
+    }
 
     // Save this object to the database.
     private function save() {
@@ -96,8 +107,10 @@ class Product {
       $db = Database::getInstance(); 
       $con = $db->getConnection();
 
-      $stmt = $con->prepare("INSERT INTO Products (id, price, name, description, category, image) VALUES (NULL, ?, ?, ?, ?, ?);");
-      $stmt->bind_param("dssis", $this->price, $this->name, $this->description, $this->category, $this->image);
+      $saleInt = (int)$this->sale;
+
+      $stmt = $con->prepare("INSERT INTO Products (id, price, name, description, category, image, sale) VALUES (NULL, ?, ?, ?, ?, ?, ?);");
+      $stmt->bind_param("dssisi", $this->price, $this->name, $this->description, $this->category, $this->image, $saleInt);
 
 	  $stmt->execute();
 

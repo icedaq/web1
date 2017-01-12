@@ -1,6 +1,7 @@
 <?php
 require_once("helpers/translator.php");
 require_once("model/User.php");
+require_once("model/Catalog.php");
 require_once("model/ShoppingCart.php");
 session_start();
 
@@ -36,8 +37,9 @@ class MainView
     {
 
         $cart = ShoppingCart::load();
-
-
+        $catalog = new Catalog();
+        $saleProduct = $catalog->getProductOnSale();
+        
         $username = "Login";
         if (isset($_SESSION['user'])) {
             $username = $_SESSION['user']->getName();
@@ -57,6 +59,7 @@ class MainView
                 break;
         }
 
+
         echo '<div class="siteHeader">
                         <div class="siteHeader__section">
                             <div class="siteHeader__item siteHeaderLogo">
@@ -70,6 +73,9 @@ class MainView
                             <div class="siteHeader__item siteHeaderLogo">
                                 <i class="fa fa-search"></i>
                             </div>
+                        </div>
+                        <div id="saleBanner" class="siteHeader__section">
+                        SALE: <a href="/catalog/show/'.$saleProduct->getId().'">'.$saleProduct->getName().'</a>
                         </div>
                         <!-- This section gets pushed to the right side-->
                         <div class="siteHeader__section">

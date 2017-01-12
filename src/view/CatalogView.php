@@ -68,6 +68,12 @@ class CatalogView {
         // data
         $product = $this->model->getProductByID($id);
 
+        // If the product is on sale, we adjust the price line.
+        $saleLine = '<td>'.$product->getPrice().' CHF</td>';
+        if ($product->getSale()) {
+            $saleLine = '<td><span class="saleOld">'.$product->getPrice().'</span> <span class="sale">'.$product->getSalePrice().'</sale></td>';
+        }
+
         // Head
         echo '<main>
                 <h1>'.$product->getName().'</h1>';
@@ -85,7 +91,7 @@ class CatalogView {
             </tr>
             <tr>
                 <td><b>'.t("price").'</b></td>
-                <td>'.$product->getPrice().' CHF</td>
+                '.$saleLine.'
             </tr>
             <tr>
                 <td><b>'.t("options").'</b></td>

@@ -12,8 +12,8 @@ class Catalog {
 		$this->load();
     }
 
-    public function addProduct($name, $price, $description, $category, $image) {
-		$p = Product::Create($name, $price, $description, $category, $image);
+    public function addProduct($name, $price, $description, $category, $image, $sale=FALSE) {
+		$p = Product::Create($name, $price, $description, $category, $image, $sale);
 		array_push($this->products, $p);
     }
 
@@ -66,6 +66,14 @@ class Catalog {
       return $categories;
     }
 
+	public function getProductOnSale() {
+		foreach ($this->products as $value) {
+			if($value->getSale()) {
+				return $value;
+			}
+		}
+    }
+
     public function filterProductsByName($term) {
 
         $result = array();
@@ -101,7 +109,7 @@ class Catalog {
       $con->query($queryProductsOptions);
 
       // Create the table.
-      $query = "CREATE TABLE Products (id int auto_increment, name varchar(20), price double, description varchar(255), category int, image varchar(100), primary key (id));";
+      $query = "CREATE TABLE Products (id int auto_increment, name varchar(20), price double, description varchar(255), category int, image varchar(100), sale bool, primary key (id));";
       $con->query($query);
 
       // Now add some data. We add the categories and options by hand.
@@ -124,7 +132,7 @@ class Catalog {
       $this->addProduct("Piano", "0.90", "The keys of a piano.", 5, "/images/image7.png"); 
       $this->addProduct("Recording tape", "1.00", "Some ancient recording tape.", 5, "/images/image8.png"); 
       $this->addProduct("Fire!", "1.50", "A though fireman walking out of a fire.", 2, "/images/image9.png"); 
-      $this->addProduct("iMac", "0.40", "Picture of an iMac.", 5, "/images/image10.png"); 
+      $this->addProduct("iMac", "0.40", "Picture of an iMac.", 5, "/images/image10.png", true); 
       $this->addProduct("Nice room", "1.50", "An old fancy room.", 6, "/images/image11.png"); 
       $this->addProduct("Flowers", "1.00", "Some beautiful flowers.", 3, "/images/image12.png"); 
       $this->addProduct("Beer", "2.00", "A nice delicous beer!", 6, "/images/image13.png"); 
