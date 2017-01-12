@@ -35,6 +35,13 @@ class AdminView
         MainView::renderFooter();
     }
 
+    public function renderAdminOrders() {
+        MainView::renderMeta(t("adminOrders")); // Param is title of the page.
+        MainView::renderNavigation("Admin");
+        $this->renderOrdersContent();
+        MainView::renderFooter();
+    }
+
     private function renderAddProductContent() {
         echo '<main>
                 <h1>'.t("adminProduct").'</h1>
@@ -115,6 +122,12 @@ class AdminView
                </main>';
     }
 
-
+    private function renderOrdersContent() {
+        echo '<main>
+                <h1>'.t("adminOrders").'</h1>
+                <br/><br/>
+                ToDo
+               </main>';
+    }
 
 }

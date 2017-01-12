@@ -185,6 +185,10 @@ function t($key) {
             'de'=>'Administration - Aktion',
             'en'=>'admin - sale' ),
 
+        'adminOrders' => array(
+            'de'=>'Administration - Bestellungen',
+            'en'=>'admin - orders' ),
+
         'content' => array(
         'de'=>'Willkommen auf der Seite ',
         'en'=>'Welcome to the page '));
