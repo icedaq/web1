@@ -9,10 +9,10 @@ class ShoppingCart {
 
 	public static function load() {
 		if (!empty($_SESSION["shoppingcart"])) {
-			return $_SESSION["shoppingcart"];
+			return unserialize($_SESSION["shoppingcart"]);
 		} else {
 			$newCart = new ShoppingCart();
-			$_SESSION["shoppingcart"] = $newCart; 
+			$_SESSION["shoppingcart"] = serialize($newCart); 
 			return $newCart;
 		}
 	}
