@@ -46,8 +46,7 @@ class CartTest extends TestCase
         $newCart = ShoppingCart::load();
         $newPrice = $newCart->cartPrice();
 
-        $this->assertEquals(1,1);
-       //$this->assertEquals($oldPrice, $newPrice);
+        $this->assertEquals($oldPrice, $newPrice);
     }
 
 }
