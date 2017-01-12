@@ -10,14 +10,14 @@ class AdminView
 
         MainView::renderMeta("Admin"); // Param is title of the page.
         MainView::renderNavigation("Admin");
-        $this->renderContent();
+        //$this->renderContent();
         MainView::renderFooter();
     }
 
     public function renderAdminEditProduct($id) {
         MainView::renderMeta(t("adminProduct")); // Param is title of the page.
         MainView::renderNavigation("Admin");
-        $this->renderEditProductContent();
+        $this->renderEditProductContent($id);
         MainView::renderFooter();
     }
 
@@ -69,7 +69,7 @@ class AdminView
                </main>';
     }
 
-    private function renderEditProductContent() {
+    private function renderEditProductContent($id) {
         echo '<main>
                 <h1>'.t("adminProduct").'</h1>
                 <h2>'.t("adminProductEdit").'</h2>
@@ -104,7 +104,11 @@ class AdminView
     }
 
     private function renderSaleContent() {
-        echo '';
+        echo '<main>
+                <h1>'.t("adminSale").'</h1>
+                <br/><br/>
+                ToDo
+               </main>';
     }
 
 
