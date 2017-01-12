@@ -79,6 +79,8 @@ class catalogController {
         if (UserManager::isAdmin()) {
             if(isset($_POST['productId']))  {
                 $this->model->setSale($_POST['productId']);
+                header("Location: /admin/show");
+                die();    
             }   
         } 
     }

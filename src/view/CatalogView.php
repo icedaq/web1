@@ -1,5 +1,4 @@
 <?php
-
 require_once("helpers/translator.php");
 require_once("MainView.php");
 
