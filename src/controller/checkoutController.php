@@ -33,6 +33,15 @@ class checkoutController {
             exit();
         } else {
 
+
+            if (($this->id == 1) && (!UserManager::isLoggedIn()))
+            {
+                header("Location: /users/login");
+                exit();
+            } else {
+                $this->model->addOrder();
+            }
+
             // Second step
             if (($this->id == 2) && (UserManager::isLoggedIn()))
             {
@@ -40,7 +49,6 @@ class checkoutController {
                     &&  isset($_POST['paymentMethod'])
                     &&  isset($_POST['giftbox'])) {
                     
-                    $this->model->addOrder();
                     $order = $this->model->getCurrentOrder();
                     $order->setShippment($_POST['deliveryMethod']); 
                     $order->setPayment($_POST['paymentMethod']); 

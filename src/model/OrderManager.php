@@ -18,7 +18,7 @@ class OrderManager {
         $cart = ShoppingCart::load();
         $user = $_SESSION['user'];
         $o = new Order($cart, $user);
-        array_push($orders, $o);
+        array_push($this->orders, $o);
         $_SESSION['order'] = serialize($o);
     }
 
