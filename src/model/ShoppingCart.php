@@ -122,7 +122,7 @@ class ShoppingCart {
 		$count = 0;
         foreach ($this->cart as $value) {
             if($value->getAmount() > 0) {
-                $count++;
+                $count = $count + $value->getAmount();
             }
 		}
     
