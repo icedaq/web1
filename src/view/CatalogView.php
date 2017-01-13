@@ -29,7 +29,7 @@ class CatalogView {
         // Head
         echo '<main>
         <h1>' . t("catalog") . '</h1>
-        <div id="catSelect">' . t("selectCategory") . $this->renderCategorySelect().'</div>';
+        <div id="catSelect">' . t("selectCategory") . ' ' . $this->renderCategorySelect().'</div>';
 
        $products = $this->model->getProducts();
         foreach ($products as $p) {
