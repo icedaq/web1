@@ -35,7 +35,7 @@ class Mailer {
         if (Mailer::getWeb1Env() == "PROD")
         {
             $apiKey = getenv('SENDGRID_API');
-            $sg = new \SendGrid($apiKey);
+            $sg = new SendGrid($apiKey);
 
             $response = $sg->client->mail()->send()->post($request_body);
             
