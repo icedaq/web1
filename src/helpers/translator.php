@@ -18,6 +18,10 @@ function t($key)
             'de' => 'Seite',
             'en' => 'Page'),
 
+        'sale' => array(
+            'de' => 'AKTION',
+            'en' => 'Sale'),
+
         'firstName' => array(
             'de' => 'Vorname',
             'en' => 'First name'),

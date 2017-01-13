@@ -71,7 +71,7 @@ class MainView
                       </div>
                   </div>
                   <div class="siteHeader_section" id="saleBanner">
-                      <div class="siteHeader_item">SALE: <a href="/catalog/show/'.$saleProduct->getId().'">'.$saleProduct->getName().'</a></div>
+                      <div class="siteHeader_item">'.t('sale').': <a href="/catalog/show/'.$saleProduct->getId().'">'.$saleProduct->getName().'</a></div>
                   </div>
                   <div class="siteHeader_section">
                       <div id="setLanDe" class="siteHeader_item_lang_left siteHeaderButton">de</div>&nbsp/&nbsp<div id="setLanEn" class="siteHeader_item_lang_right siteHeaderButton"> en</div>
