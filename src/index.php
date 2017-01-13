@@ -12,7 +12,13 @@ if ($components[1] != "")
     $components[2] = "home";
 }
 
-include_once("controller/".$controllerclass.".php");
+//include_once("controller/".$controllerclass.".php");
+
+if((@include "controller/".$controllerclass.".php") === false)
+{
+    header($_SERVER["SERVER_PROTOCOL"]." 404 Not Found", true, 404);
+    echo "Page not found!";
+} else {
 
 $controller = new $controllerclass();
 
@@ -38,4 +44,5 @@ if (isset($gets)) {
 if (isset($components[2])) {
     $controller->{$components[2]}();
 }
-?>
+
+}
