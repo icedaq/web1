@@ -101,5 +101,6 @@ class UserManager {
 
       // We build the user objects and let them store themself.
       $this->addUser("admin", "admin", "Chuck", "Norris", "Awesomeave", 5, "Roundhouse Town", 1337, true); 
+      $this->addUser("user", "user", "Rick", "Ashley", "Never gonna road", 1, "Let you go town", 1337, true); 
     }
 }

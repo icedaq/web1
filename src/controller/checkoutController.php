@@ -1,5 +1,5 @@
 <?php
-require_once("model/ShoppingCart.php");
+//error_reporting(-1);
 require_once("model/OrderManager.php");
 require_once("model/UserManager.php");
 require_once("view/CheckoutView.php");
@@ -32,7 +32,6 @@ class checkoutController {
             header("Location: /checkout/step/1");
             exit();
         } else {
-
 
             if (($this->id == 1) && (!UserManager::isLoggedIn()))
             {
