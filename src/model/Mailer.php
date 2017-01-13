@@ -1,5 +1,5 @@
 <?php
-require_once("libs/sendgrid-php/sendgrid-php.php");
+require_once(__DIR__ . "/../libs/sendgrid-php/sendgrid-php.php");
 
 // Simple class to send email notifications.
 class Mailer {
@@ -35,7 +35,7 @@ class Mailer {
         if (Mailer::getWeb1Env() == "PROD")
         {
             $apiKey = getenv('SENDGRID_API');
-            $sg = new SendGrid($apiKey);
+            $sg = new \SendGrid($apiKey);
 
             $response = $sg->client->mail()->send()->post($request_body);
             
