@@ -41,8 +41,6 @@ if (isset($gets)) {
     $controller->setParams($params);
 }
 
-if (isset($components[2])) {
     $controller->{$components[2]}();
-}
 
 }
