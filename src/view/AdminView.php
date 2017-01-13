@@ -12,14 +12,14 @@ class AdminView
     }
 
     public function renderAdmin() {
-        MainView::renderMeta("Admin"); // Param is title of the page.
+        MainView::renderMeta(t("admin")); // Param is title of the page.
         MainView::renderNavigation("Admin");
         $this->renderContent();
         MainView::renderFooter();
     }
     
     public function renderAdminUnauthorized() {
-        MainView::renderMeta("Admin"); // Param is title of the page.
+        MainView::renderMeta(t("admin")); // Param is title of the page.
         MainView::renderNavigation("Admin");
         $this->renderUnauthorizedContent();
         MainView::renderFooter();
@@ -36,34 +36,34 @@ class AdminView
     private function renderContent() {
 
         echo '<main>
-                <h1>Adminbereich</h1>
-                <h2>Produkte</h2>
+                <h1>'.t("admin").'</h1>
+                <h2>'.t("products").'</h2>
                 <form action="/catalog/add" id="addProduct" style="min-width: 20em;">
-                    <label style="font-weight: bold;" form="person">Produkte-Erfassung</label>
-                    <label>Name</label>
+                    <label style="font-weight: bold;" form="person">'.t("productAdd").'</label>
+                    <label>'.t("name").'</label>
                     <input type="text" name="name" required>
 
-                    <label>Price</label>
+                    <label>'.t("price").'</label>
                     <input type="number" name="price" required>
 
-                    <label>Description</label>
+                    <label>'.t("description").'</label>
                     <input type="text" name="description">
             
-                    <label form="image">Image</label>
+                    <label form="image">'.t("image").'</label>
                     <input type="text" name="image" id="imagepfad" maxlength="80">
             
-                    <label form="categorie">Category</label>
+                    <label form="categorie">'.t("category").'</label>
                     '.$this->renderCategorySelect().'
-                    <label form="option">Options</label>
+                    <label form="option">'.t("options").'</label>
                     '.$this->renderProductOptions().'
-                    <button style="min-width: 20em;" type="submit">Produkt speichern</button>
+                    <button style="min-width: 20em;" type="submit">'.t("productSave").'</button>
                 </form>
                 <h2>Sale</h2>
                 <form action="/catalog/sale" id="setSale" method="POST">
-                    <label style="font-weight: bold;" form="person">Product on sale</label>
+                    <label style="font-weight: bold;" form="person">'.t("productOnSale").'</label>
             
                     '.$this->renderProductsSelect().'
-                    <button style="min-width: 20em;" type="submit">Save</button>
+                    <button style="min-width: 20em;" type="submit">'.t("save").'</button>
                 </form>
                </main>';
     }

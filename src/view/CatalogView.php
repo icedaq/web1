@@ -18,7 +18,7 @@ class CatalogView {
     }
 
     public function renderProduct($id) {
-        MainView::renderMeta("Product"); // Param is title of the page.
+        MainView::renderMeta(t("product")); // Param is title of the page.
         MainView::renderNavigation("catalog");
         $this->renderProductContent($id);         
         MainView::renderFooter(); 
@@ -85,7 +85,7 @@ class CatalogView {
                 <td>'.$product->getDescription().'</td>
             </tr>
             <tr>
-                <td><b>'.t(category).'</b></td>
+                <td><b>'.t("category").'</b></td>
                 <td>'.$product->getCategoryName().'</td>
             </tr>
             <tr>

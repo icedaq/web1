@@ -12,7 +12,7 @@ class CartView {
     }
     
     public function renderCart() {
-        MainView::renderMeta("Shopping cart"); // Param is title of the page.
+        MainView::renderMeta(t("cart")); // Param is title of the page.
         MainView::renderNavigation("cart");
         $this->renderContent();         
         MainView::renderFooter(); 
@@ -22,16 +22,16 @@ class CartView {
 
         // Head
         echo '<main>
-                <h1>Warenkorb</h1><br/>
+                <h1>'.t("cart").'</h1><br/>
                 <div class="detail-image">
         <table class="detail-information-image" style="width:100%">
             <tr>
-                <th>Product</th>
-                <th>Anzahl</th>
-                <th>Anzeigen</th>
-                <th>Menge</th>
-                <th>Entfernen</th>
-                <th>Preis</th>
+                <th>'.t("product").'</th>
+                <th>'.t("count").'</th>
+                <th>'.t("show").'</th>
+                <th>'.t("amount").'</th>
+                <th>'.t("delete").'</th>
+                <th>'.t("price").'</th>
             </tr>';
 
         // Per item
@@ -71,8 +71,8 @@ class CartView {
         echo '</table>
                 </div>
                 <br><br>
-                <button onclick="clearCart() "type="button">Warenkorb leeren</button>
-                <a href="/checkout/step/1"><button type="button">Warenkorb Bestellen</button></a>
+                <button onclick="clearCart() "type="button">'.t("emptyCart").'</button>
+                <a href="/checkout/step/1"><button type="button">'.t("placeOrder").'</button></a>
                 <br><br>
                 </main>';
     }
