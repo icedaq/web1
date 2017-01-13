@@ -12,21 +12,21 @@ class CheckoutView {
     }
 
     public function renderStep1(){
-        MainView::renderMeta("Checkout Step 1"); // Param is title of the page.
+        MainView::renderMeta(t("checkoutTitle1")); // Param is title of the page.
         MainView::renderNavigation("cart");
         $this->renderCheckoutStep1Content();         
         MainView::renderFooter(); 
     }
 
     public function renderStep2(){
-        MainView::renderMeta("Checkout Step 2"); // Param is title of the page.
+        MainView::renderMeta(t("checkoutTitle2")); // Param is title of the page.
         MainView::renderNavigation("cart");
         $this->renderCheckoutStep2Content();         
         MainView::renderFooter(); 
     }
 
     public function renderStep3(){
-        MainView::renderMeta("Order confirmation"); // Param is title of the page.
+        MainView::renderMeta(t("checkoutTitle3")); // Param is title of the page.
         MainView::renderNavigation("cart");
         $this->renderCheckoutStep3Content();         
         MainView::renderFooter(); 
@@ -65,7 +65,7 @@ class CheckoutView {
         echo '</main>';
         // Some html for the confirmation dialog.
         echo '<div id="dialog-confirm" title="Place order?">
-  <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>This is a binding contract. Do you really want to place this order?</p>
+  <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>'.t("checkoutContract").'</p>
 </div>';
 
     }
@@ -73,7 +73,7 @@ class CheckoutView {
     private function renderCheckoutStep3Content() {
         echo '<main>';
         echo '<h1>'.t("checkoutTitle3").'</h1>';
-        echo '<p>Thank you for your order! You will receive an email confirmation shortly!</p>';
+        echo '<p>'.t("checkoutConfermation").'</p>';
         echo '</main>';
     }
 

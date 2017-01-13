@@ -11,14 +11,14 @@ class CatalogView {
     }
     
     public function renderCatalog() {
-        MainView::renderMeta("Catalog"); // Param is title of the page.
+        MainView::renderMeta(t("catalog")); // Param is title of the page.
         MainView::renderNavigation("catalog");
         $this->renderCatalogContent();         
         MainView::renderFooter(); 
     }
 
     public function renderProduct($id) {
-        MainView::renderMeta("Product"); // Param is title of the page.
+        MainView::renderMeta(t("product")); // Param is title of the page.
         MainView::renderNavigation("catalog");
         $this->renderProductContent($id);         
         MainView::renderFooter(); 
@@ -28,8 +28,8 @@ class CatalogView {
 
         // Head
         echo '<main>
-        <h1>Katalog</h1>
-        <div id="catSelect">Select category: '.$this->renderCategorySelect().'</div>';
+        <h1>' . t("catalog") . '</h1>
+        <div id="catSelect">' . t("selectCategory") . ' ' . $this->renderCategorySelect().'</div>';
 
        $products = $this->model->getProducts();
         foreach ($products as $p) {
@@ -85,7 +85,7 @@ class CatalogView {
                 <td>'.$product->getDescription().'</td>
             </tr>
             <tr>
-                <td><b>'.t(category).'</b></td>
+                <td><b>'.t("category").'</b></td>
                 <td>'.$product->getCategoryName().'</td>
             </tr>
             <tr>

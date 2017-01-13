@@ -65,7 +65,7 @@ class UsersView {
 
     public function renderSignUp() {
 
-        MainView::renderMeta("Register"); // Param is title of the page.
+        MainView::renderMeta(t("register")); // Param is title of the page.
         MainView::renderNavigation("user");
         $this->renderSignUpContent();         
         MainView::renderFooter(); 

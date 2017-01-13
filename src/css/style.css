@@ -27,19 +27,17 @@ span.sale {
 }
 
 header {
-
     display: flex;
     justify-content: space-between;
 
     padding: 10px;
     background-color: #56727C;
+    color: #D9E9EF;
 }
 
 .siteHeader_section {
-
     display: flex;
-
-    align-items: baseline;
+    align-items: center;
 }
 
 .siteHeader_section#saleBanner {
@@ -50,7 +48,7 @@ header {
 
 .siteHeader_item_left {
     padding: 0.1em 0.3em;
-    margin-right: 0.3em;
+    margin-right: 0.4em;
 }
 .siteHeader_item {
     padding: 0.1em 0.3em;
@@ -63,17 +61,15 @@ header {
 }
 .siteHeader_item_right {
     padding: 0.1em 0.3em;
-    margin-left: 0.3em;
+    margin-left: 0.4em;
 }
 
 .siteHeaderButton a {
     text-decoration: none;
-    color: #D9E9EF;
 }
 
 
 .is-site-header-item-selected {
-    color: #FFFFFF;
     background-color: #415F69;
     border-radius: 4px;
 }
@@ -87,7 +83,6 @@ header {
 
 .siteHeaderLogo {
     line-height: 0;
-    color: white;
 }
 
 /* This is for the username */
@@ -97,7 +92,6 @@ header {
 
 .siteHeaderButton {
     cursor: pointer;
-    color: #D9E9EF;
 }
 
 /* Do not give links in the nav weird colors. */
@@ -108,7 +102,6 @@ header {
 
 .siteHeaderLogo a {
     text-decoration: none;
-    color: white;
 }
 
 footer.mainFooter {

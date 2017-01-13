@@ -18,7 +18,7 @@ class MainView
                         <meta charset="UTF-8">
                         <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
                         <title>ApertureLab - ' . $title . '</title>
-                        <link rel="icon" href="favicon.ico" type="image/x-icon">
+                        <link rel="icon" href="/favicon.ico" type="image/x-icon">
                         <link rel="stylesheet" href="/css/reset.css">
                         <link rel="stylesheet" href="/css/style.css">
                         <link rel="stylesheet" href="/css/font-awesome.min.css">
@@ -67,14 +67,14 @@ class MainView
                           <a href="/catalog/show">' . t("catalog") . '</a>
                       </div>
                       <div class="siteHeader_item">
-                          <input id="searchField" type="text"></input> <i class="fa fa-search"></i>
+                          <input id="searchField" type="text"></input>&nbsp<i class="fa fa-search"></i>
                       </div>
                   </div>
                   <div class="siteHeader_section" id="saleBanner">
                       <div class="siteHeader_item">SALE: <a href="/catalog/show/'.$saleProduct->getId().'">'.$saleProduct->getName().'</a></div>
                   </div>
                   <div class="siteHeader_section">
-                      <div id="setLanDe" class="siteHeader_item_lang_left siteHeaderButton">de</div> / <div id="setLanEn" class="siteHeader_item_lang_right siteHeaderButton">en</div>
+                      <div id="setLanDe" class="siteHeader_item_lang_left siteHeaderButton">de</div>&nbsp/&nbsp<div id="setLanEn" class="siteHeader_item_lang_right siteHeaderButton"> en</div>
                       <div class="siteHeader_item_right siteHeaderLogo ' . $selected[2] . '">
                           <a href="/cart/show"><i class="fa fa-shopping-cart"></i> <span id="menuCartCount">'.$cart->cartCount().'</span></a>
                       </div>
