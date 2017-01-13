@@ -114,6 +114,10 @@ function t($key)
             'de' => 'Jetzt kaufen!',
             'en' => 'Buy now!'),
 
+        'selectCategory' => array(
+            'de' => 'Kategorie auswählen:',
+            'en' => 'Select category:'),
+
         'options' => array(
             'de' => 'Optionen',
             'en' => 'Options'),
