@@ -38,7 +38,7 @@ class AdminView
         echo '<main>
                 <h1>'.t("admin").'</h1>
                 <h2>'.t("products").'</h2>
-                <form action="/catalog/add" id="addProduct" style="min-width: 20em;">
+                <form action="/catalog/add" id="addProduct" method="POST" style="min-width: 20em;">
                     <label style="font-weight: bold;" form="person">'.t("productAdd").'</label>
                     <label>'.t("name").'</label>
                     <input type="text" name="name" required>

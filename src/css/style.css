@@ -163,6 +163,11 @@ main form {
     justify-content: center;
     margin-top: 1em;
     flex-direction: column;
+    min-width: 20%;
+}
+
+main form input[type="submit"] {
+    margin-top: 1em;
 }
 
 main form#checkout1 .line {
