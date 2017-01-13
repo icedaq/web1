@@ -88,7 +88,7 @@ class MainView
     public static function renderFooter()
     {
         echo '<footer class="mainFooter">
-                 <p>&copy; 2017 by ApertureLab, 10 Downing Street, London SW1A 2AA, UK</p>
+                 <p>&copy; 2018 by ApertureLab, 10 Downing Street, London SW1A 2AA, UK</p>
               </footer>
               </body>
               </html>';
