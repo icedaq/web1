@@ -58,6 +58,12 @@ class AdminView
                     '.$this->renderProductOptions().'
                     <button style="min-width: 20em;" type="submit">'.t("productSave").'</button>
                 </form>
+                <form action="/catalog/delete" id="deleteProduct" method="POST" style="min-width: 20em;">
+                    <label style="font-weight: bold;" form="person">'.t("productRemove").'</label>
+                    <label>'.t("productId").'</label>
+                    <input type="text" name="name" required>
+                    <button style="min-width: 20em;" type="submit">'.t("productSave").'</button>
+                </form>
                 <h2>Sale</h2>
                 <form action="/catalog/sale" id="setSale" method="POST">
                     <label style="font-weight: bold;" form="person">'.t("productOnSale").'</label>

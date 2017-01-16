@@ -115,7 +115,7 @@ class Product {
       
       $query = "DELETE FROM PRODUCTS WHERE id = ".$this->id.";";
 
-      $con->query($query) 
+      $con->query($query); 
     }
 
     // Save this object to the database.

@@ -189,10 +189,18 @@ function t($key)
         'admin' => array(
             'de' => 'Adminbereich',
             'en' => 'Admin'),
+        
+        'productId' => array(
+            'de' => 'Produkte ID',
+            'en' => 'Product ID'),
 
         'productAdd' => array(
             'de' => 'Produkte-Erfassung',
             'en' => 'Adding product'),
+        
+        'productRemove' => array(
+            'de' => 'Produkt entfernen',
+            'en' => 'Delete product'),
 
         'productSave' => array(
             'de' => 'Produkt speichern',
