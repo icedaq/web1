@@ -108,6 +108,16 @@ class Product {
         return $price;
     }
 
+    // Delete itself from the database
+    public function delete() {
+      $db = Database::getInstance(); 
+	  $con = $db->getConnection();
+      
+      $query = "DELETE FROM PRODUCTS WHERE id = ".$this->id.";";
+
+      $con->query($query) 
+    }
+
     // Save this object to the database.
     private function save() {
 

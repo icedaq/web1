@@ -118,7 +118,15 @@ class Catalog {
         }
 
         return $result;
-	}
+    }
+
+    public function deleteProduct($id) {
+		foreach ($this->products as $value) {
+			if($value->getId() == $id) {
+				$value->delete();
+			}
+		}
+    }
 
     // Product: 20 Products. Options. Categories.
     // Create a default set of products.
