@@ -97,13 +97,15 @@ class Product {
 		return $this->image;
     }
 
-	public function getPrice() {
-		return $this->price;
-    }
-
     // Sale is 10% off.
-    public function getSalePrice() {
-        return 0.9*$this->getPrice();
+    public function getPrice() {
+        $price = 0;
+        if ($this->getSale()){
+            $price = $this->price*0.9;
+        } else {
+		    $price = $this->price;
+        }
+        return $price;
     }
 
     // Save this object to the database.

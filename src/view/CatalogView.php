@@ -71,7 +71,7 @@ class CatalogView {
         // string number_format ( float $number , int $decimals = 0 , string $dec_point = "." , string $thousands_sep = "," )
         $saleLine = '<td>'.number_format($product->getPrice(), 2, '.', "'").' CHF</td>';
         if ($product->getSale()) {
-            $saleLine = '<td><span class="saleOld">'.number_format($product->getPrice(), 2, '.', "'").'</span> <span class="sale">'.number_format($product->getSalePrice(), 2, '.', "'").' CHF</sale></td>';
+            $saleLine = '<td><span class="saleOld">'.number_format($product->getPrice()*(10/9), 2, '.', "'").'</span> <span class="sale">'.number_format($product->getPrice(), 2, '.', "'").' CHF</sale></td>';
         }
 
         // Head
