@@ -1,6 +1,7 @@
 <?php
 require_once("helpers/translator.php");
 require_once("MainView.php");
+require_once("model/UserManager.php");
 
 class UsersView {
 
@@ -27,8 +28,17 @@ class UsersView {
 
     // TODO: Reduce this!
     private function renderLoginSuccessContent($user) {
+
+        // Admins get a link to the admin page.
+        $adminLink = "";
+        if (UserManager::isAdmin())
+        {
+            $adminLink = '<h2><a href="/admin/show">Go to Admin Page!</a></h2>';
+        }
+
         echo '<main>';
         echo  '<h1>'.t("welcomeUser").$user->getFirstName().'</h1>';
+        echo $adminLink;
         echo '<form action="/users/logout" method="post">';
         echo '<input type="submit" value="'.t("logout").'">';
         echo '</form>';

@@ -112,10 +112,10 @@ class Product {
     public function delete() {
       $db = Database::getInstance(); 
 	  $con = $db->getConnection();
-      
-      $query = "DELETE FROM PRODUCTS WHERE id = ".$this->id.";";
 
-      $con->query($query); 
+      $query = "DELETE FROM Products WHERE id = ".$this->id.";";
+
+      $queryR = $con->query($query);
     }
 
     // Save this object to the database.

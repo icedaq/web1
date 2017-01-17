@@ -89,6 +89,16 @@ class catalogController {
         } 
     }
 
+    public function delete() {
+        if (UserManager::isAdmin()) {
+            if(isset($_POST['productId']))  {
+                $this->model->deleteProduct($_POST['productId']);
+                header("Location: /catalog/show");
+                die();    
+            }   
+        } 
+    }
+
     public function seed() {
         $db = Database::getInstance(); 
         $db->seed();
