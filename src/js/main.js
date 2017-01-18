@@ -124,6 +124,17 @@ $( document ).ready(function() {
           location.href = "/catalog/show/"+ui.item.value;
       }});
 
+        $.widget("ui.tooltip", $.ui.tooltip, {
+        options: {
+            content: function () {
+                return $(this).prop('title');
+            }
+        }
+    });
+
+    $('#saleBanner').attr('title', $('#popup-sale').remove().html())
+    $(document).tooltip();
+
 //    updateMenuCartCount();
 });
 
