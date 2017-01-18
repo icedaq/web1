@@ -15,7 +15,7 @@ class Mailer {
             ],
             "cc": [
                 {
-                "email": "icedaq@bluewin.ch"
+                "email": "test@example.com"
                 }
             ],
             "subject": "Your order!"

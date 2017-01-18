@@ -99,6 +99,6 @@ class UserManager {
       $con->query($query);
 
       // We build the user objects and let them store themself.
-      $this->addUser("admin", "admin", "icedaq@bluewin.ch", "Chuck", "Norris", "Awesomeave", 5, "Roundhouse Town", 1337, "Switzerland", true); 
+      $this->addUser("admin", "supersecret!", "test@example.com", "Chuck", "Norris", "Awesomeave", 5, "Roundhouse Town", 1337, "Switzerland", true); 
     }
 }
