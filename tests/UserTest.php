@@ -14,7 +14,7 @@ class UserTest extends TestCase
     public function testAdminLogin()
 	{
         $um = new UserManager();
-        $isValid = $um->checkLogin("admin", "admin");
+        $isValid = $um->checkLogin("admin", "supersecret!");
 
 		$this->assertEquals(true, $isValid);
     }
