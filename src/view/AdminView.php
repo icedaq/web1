@@ -86,9 +86,9 @@ class AdminView
 
 
     private function renderProductOptions() {
-        $output = '<select multiple name="options">'; 
-        foreach ($this->catalog->getOptions() as $o) {
-            $output = $output.'<option value="'.$o.'">'.$o.'</option>';
+        $output = '<select multiple name="options[]">'; 
+        foreach ($this->catalog->getOptionsWithIds() as $o) {
+            $output = $output.'<option value="'.$o['id'].'">'.$o['name'].'</option>';
         }
         $output = $output.'</select>';
         

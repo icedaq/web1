@@ -66,9 +66,10 @@ class catalogController {
                 &&  isset($_POST['price'])
                 &&  isset($_POST['description'])
                 &&  isset($_POST['category'])
+                &&  isset($_POST['options'])
                 &&  isset($_POST['image'])) {
 
-                $this->model->addProduct($_POST['name'],$_POST['price'],$_POST['description'], $_POST['category'], $_POST['image'], false);
+                $this->model->addProduct($_POST['name'],$_POST['price'],$_POST['description'], $_POST['category'], $_POST['options'], $_POST['image'], false);
                 header("Location: /catalog/show");
                 die();    
             } else {

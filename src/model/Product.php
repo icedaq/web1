@@ -9,6 +9,7 @@ class Product {
     private $name;
     private $description;
     private $category;
+    private $options;
     private $image;
     private $sale;
 
@@ -17,7 +18,7 @@ class Product {
     
 	}
 
-    public static function Create($name, $price, $description, $category, $image, $sale=FALSE) {
+    public static function Create($name, $price, $description, $category, $options, $image, $sale=FALSE) {
 
         $prod = new Product();
         $prod->name = $name;
@@ -26,6 +27,7 @@ class Product {
         $prod->category = $category;
         $prod->image = $image;
         $prod->sale = $sale;
+        $prod->options = $options;
 
 		$prod->save();
 
@@ -124,6 +126,7 @@ class Product {
       $db = Database::getInstance(); 
       $con = $db->getConnection();
 
+      // Store product.
       $saleInt = (int)$this->sale;
 
       $stmt = $con->prepare("REPLACE INTO Products (id, price, name, description, category, image, sale) VALUES (?, ?, ?, ?, ?, ?, ?);");
@@ -131,6 +134,13 @@ class Product {
 
 	  $stmt->execute();
 
-	  $this->id = $stmt->insert_id;
+      $this->id = $stmt->insert_id;
+
+      // Store options for the product.
+      foreach ($this->options as $option) {
+        $stmt2 = $con->prepare("INSERT INTO ProductsOptions (idProduct, idOption) VALUES (?,?);");
+        $stmt2->bind_param("ii", $this->id, $option);      
+        $stmt2->execute(); 
+      }
     } 
 }
