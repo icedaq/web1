@@ -57,15 +57,17 @@ class usersController {
             &&  isset($_POST['password'])
             &&  isset($_POST['firstName'])
             &&  isset($_POST['lastName'])
+            &&  isset($_POST['email'])
             &&  isset($_POST['street'])
             &&  isset($_POST['houseNumber'])
             &&  isset($_POST['city'])
-            &&  isset($_POST['zip']))
+            &&  isset($_POST['zip'])
+            &&  isset($_POST['country']))
         {
             // TODO: Validate
-            $this->model->addUser($_POST['login'], $_POST['password'], 
+            $this->model->addUser($_POST['login'], $_POST['password'], $_POST['email'], 
                 $_POST['firstName'],$_POST['lastName'], $_POST['street'], 
-                $_POST['houseNumber'], $_POST['city'], $_POST['zip'], false);
+                $_POST['houseNumber'], $_POST['city'], $_POST['zip'], $_POST['country'], false);
             header("Location: /users/login");
             die();    
         } else {

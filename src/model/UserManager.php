@@ -12,9 +12,8 @@ class UserManager {
         $this->load();
     }
 
-    // TODO: Add country, email
-    public function addUser($login, $password, $firstName, $lastName, $street, $houseNumber, $city, $zip, $isAdmin) {
-		User::Create($login, $password, $firstName, $lastName, $street, $houseNumber, $city, $zip, $isAdmin);
+    public function addUser($login, $password, $email, $firstName, $lastName, $street, $houseNumber, $city, $zip, $country, $isAdmin) {
+		User::Create($login, $password, $email, $firstName, $lastName, $street, $houseNumber, $city, $zip, $country, $isAdmin);
     }
 
     // Load all the users from the database.
@@ -96,11 +95,10 @@ class UserManager {
       // Maybe add an index on the login column.
 
       // Create the table.
-      $query = "CREATE TABLE Users (id int auto_increment, login varchar(255), password varchar(255), firstName varchar(255), lastName varchar(255), street varchar(255), houseNumber int, city varchar(255), zip int, isAdmin bool, primary key (id));";
+      $query = "CREATE TABLE Users (id int auto_increment, login varchar(255), password varchar(255), email varchar(255), firstName varchar(255), lastName varchar(255), street varchar(255), houseNumber int, city varchar(255), zip int, country varchar(100), isAdmin bool, primary key (id));";
       $con->query($query);
 
       // We build the user objects and let them store themself.
-      $this->addUser("admin", "admin", "Chuck", "Norris", "Awesomeave", 5, "Roundhouse Town", 1337, true); 
-      $this->addUser("user", "user", "Rick", "Ashley", "Never gonna road", 1, "Let you go town", 1337, true); 
+      $this->addUser("admin", "admin", "icedaq@bluewin.ch", "Chuck", "Norris", "Awesomeave", 5, "Roundhouse Town", 1337, "Switzerland", true); 
     }
 }

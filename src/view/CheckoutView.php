@@ -57,7 +57,7 @@ class CheckoutView {
         echo '<h1>'.t("checkoutTitle2").'</h1>';
         echo '<form id="checkout2" action="/checkout/step/3" method="post">';
         echo '<label><b>'.t("shippingAddress").'</b></label>';
-        echo '<div class="line">'.$user->getLastName().' '.$user->getFirstName().'<br>'.$user->getStreet().' '.$user->getHouseNumber().'<br>'.$user->getZip().' '.$user->getCity().'</div>';
+        echo '<div class="line">'.$user->getLastName().' '.$user->getFirstName().'<br>'.$user->getStreet().' '.$user->getHouseNumber().'<br>'.$user->getZip().' '.$user->getCity().'<br>'.$user->getCountry().'</div>';
         echo '<label><b>'.t("comment").'</b></label>';
         echo '<textarea rows="5" cols="20" name="comment" ></textarea>';
         echo '<button type="button" onclick="confirmOrder()">'.t("placeOrder").'</button>';

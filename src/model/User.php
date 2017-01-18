@@ -6,11 +6,13 @@ class User {
 
     private $login;
     private $password;
+    private $email;
     private $firstName;
     private $lastName;
     private $street;
     private $houseNumber;
     private $city;
+    private $country;
     private $zip;
     private $isAdmin;
     
@@ -19,19 +21,20 @@ class User {
     
 	}
 
-    // TODO: Add country
-    public static function Create($login, $password, $firstName, $lastName, $street, $houseNumber, $city, $zip, $isAdmin) {
+    public static function Create($login, $password, $email, $firstName, $lastName, $street, $houseNumber, $city, $zip, $country, $isAdmin) {
     
         $user = new User(); 
         $user->login = $login;
         // PHP password_hash is already hashed and salted. Just how we like it.
         $user->password = password_hash($password, PASSWORD_DEFAULT);
+        $user->email = $email;
         $user->firstName = $firstName;
         $user->lastName = $lastName;
         $user->street = $street;
         $user->houseNumber = $houseNumber;
         $user->city = $city;
         $user->zip = $zip;
+        $user->country = $country;
         $user->isAdmin = $isAdmin;
 
 		$user->save();
@@ -44,6 +47,10 @@ class User {
 	}
 
 	public function getName() {
+		return $this->login;
+    }
+    
+    public function getMail() {
 		return $this->login;
     }
 
@@ -71,6 +78,10 @@ class User {
 		return $this->zip;
     }
     
+    public function getCountry() {
+		return $this->country;
+    }
+    
     public function isAdmin() {
 		return $this->isAdmin;
     }
@@ -82,9 +93,9 @@ class User {
 
       $db = Database::getInstance(); 
       $con = $db->getConnection();
-      $stmt = $con->prepare("INSERT INTO Users (id, login, password, firstName, lastName, street, houseNumber, city, zip, isAdmin) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
+      $stmt = $con->prepare("INSERT INTO Users (id, login, password, email, firstName, lastName, street, houseNumber, city, zip, country, isAdmin) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
       
-      $stmt->bind_param("sssssisii", $this->login, $this->password, $this->firstName, $this->lastName, $this->street, $this->houseNumber, $this->city, $this->zip, $isAdminInt);
+      $stmt->bind_param("ssssssisisi", $this->login, $this->password, $this->email, $this->firstName, $this->lastName, $this->street, $this->houseNumber, $this->city, $this->zip, $this->country, $isAdminInt);
 	  $stmt->execute();
 
 	  $this->id = $stmt->insert_id;

@@ -48,7 +48,7 @@ class Order {
 
     public function setCommited() {
         $this->commited = true;
-        Mailer::sendMail("pascal.liniger@gmail.com", 'Thank you for your order!');
+        Mailer::sendMail($this->user->getMail(), 'Thank you for your order!');
     }
 
 }

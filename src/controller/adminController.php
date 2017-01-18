@@ -25,7 +25,7 @@ class adminController {
     {
         if (UserManager::isAdmin()) {
             echo "Sending mail!";
-            Mailer::sendMail("pascal.liniger@gmail.com", 'Thank you for your order!');
+            #Mailer::sendMail("test@example.com", 'Thank you for your order!');
         } else {
             $this->view->renderAdminUnauthorized();
         }
